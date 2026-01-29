@@ -69,13 +69,29 @@
     
     <button class="button" onclick="loadAnswers()">Tải lại câu trả lời</button>
     <button class="button" onclick="downloadAnswers()">Tải xuống JSON</button>
-    <button class="button" onclick="acceptAndReset()">Accept</button>  <!-- New Accept button -->
+    <button class="button" onclick="acceptAndReset()">Accept</button>
     
     <div class="answers-list" id="answersList">
         <p class="no-answers">Chưa có câu trả lời nào. Nhấn "Tải lại câu trả lời" để kiểm tra.</p>
     </div>
 
     <script>
+      // Password for admin access (change this to your desired password)
+      const PASSWORD = 'Tamzin15613@';  // ← CHANGE THIS TO YOUR PASSWORD
+
+      // Password check on page load
+      window.addEventListener('load', function() {
+        const enteredPassword = prompt('Enter the admin password to access this panel:');
+        if (enteredPassword !== PASSWORD) {
+          alert('Incorrect password. Access denied.');
+          // Redirect to main page (adjust URL if needed)
+          window.location.href = './index.html';  // Assumes main page is index.html in the same folder
+          return;  // Stop loading the rest of the page
+        }
+        // If password is correct, proceed to load answers
+        loadAnswers();
+      });
+
       function loadAnswers() {
         const answersList = document.getElementById('answersList');
         answersList.innerHTML = ''; // Clear previous content
@@ -177,9 +193,6 @@
           alert('Đã chấp nhận và reset. Trang chính giờ sẽ hiển thị "still working on".');
         }
       }
-
-      // Load answers on page load
-      window.addEventListener('load', loadAnswers);
     </script>
 </body>
 </html>
