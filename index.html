@@ -103,6 +103,26 @@
       .hidden {
           display: none !important;
       }
+
+      .already-submitted {
+          display: none;
+          position: fixed;
+          bottom: 50%;
+          left: 50%;
+          transform: translate(-50%, 50%);
+          background-color: white;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          max-width: 500px;
+          width: 80%;
+          text-align: center;
+      }
+
+      .already-submitted h2 {
+          color: #498e4c;
+          margin-bottom: 20px;
+      }
     </style>
 </head>
 <body>
@@ -110,6 +130,12 @@
     <p class="HiddenEl">Để có thể vào nhóm lớp thì website xin phép hỏi một chút câu hỏi!</p>
     <button id="myBtn" class="button HiddenEl">Ok</button>
     <h6 class="HiddenEl">(Không phải thành viên lớp thì cút)</h6>
+
+    <!-- Already Submitted Message -->
+    <div class="already-submitted" id="alreadySubmitted">
+        <h2>Đã gửi câu trả lời!</h2>
+        <p>Hãy chờ 1-2 ngày để xác minh thành viên!</p>
+    </div>
 
     <!-- Question 1: Personal -->
     <div class="question-container" id="question1">
@@ -163,6 +189,18 @@
       const FORM_URL = `https://formsubmit.co/ajax/${YOUR_EMAIL}`;
       
       const answers = {};
+
+      // Check if already submitted on page load
+      window.addEventListener('load', function() {
+        if (localStorage.getItem('7A7_submitted')) {
+          // Hide initial elements and show already submitted message
+          const hiddenEls = document.getElementsByClassName('HiddenEl');
+          for (let el of hiddenEls) {
+            el.style.display = 'none';
+          }
+          document.getElementById('alreadySubmitted').style.display = 'block';
+        }
+      });
 
       // Enter key listener
       document.addEventListener('keypress', function(event) {
@@ -368,6 +406,9 @@
           } else {
             finalMessage.innerHTML = 'Câu trả lời đã được lưu!<br><small>Sẽ gửi khi có internet.</small>';
           }
+
+          // Mark as submitted in localStorage
+          localStorage.setItem('7A7_submitted', 'true');
         }, 500);
       }
 
