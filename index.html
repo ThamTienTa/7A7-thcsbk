@@ -137,6 +137,18 @@
     font-size: 24px;
     color: #FFFFFF;
 }
+
+.reset-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.reset-button:hover {
+    background-color: #b71c1c;
+}
     </style>
 </head>
 <body>
@@ -202,7 +214,8 @@
         <p id="finalMessage">Đang gửi câu trả lời...</p>
     </div>
 
-    <!-- Still Working On Message -->
+    <!-- Reset Button -->
+    <button id="resetBtn" class="button reset-button" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; font-size: 14px;">Reset</button>
 <div class="working-message" id="workingMessage">
     <h1>Still working on</h1>
     <p>Please check back later.</p>
@@ -455,7 +468,42 @@
           // Mark as submitted in localStorage
           localStorage.setItem('7A7_submitted', 'true');
         }, 500);
-      }          
+      }
+
+      function resetProcess() {
+        // Clear answers
+        for (let key in answers) {
+          delete answers[key];
+        }
+        
+        // Clear input values
+        const inputs = ['answer1', 'answer2', 'answer3', 'answer4'];
+        inputs.forEach(id => {
+          const input = document.getElementById(id);
+          if (input) input.value = '';
+        });
+        
+        // Hide all question containers and final
+        const containers = ['question1', 'question2', 'identity', 'question3', 'question4', 'final', 'alreadySubmitted'];
+        containers.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.add('hidden');
+            el.style.display = 'none';
+          }
+        });
+        
+        // Clear localStorage
+        localStorage.removeItem('7A7_submitted');
+        
+        // Show initial elements
+        const hiddenEls = document.getElementsByClassName('HiddenEl');
+        for (let el of hiddenEls) {
+          el.style.display = 'block';
+          el.classList.remove('fade-out');
+        }
+      }
+          
 // Check if already submitted or in working status on page load
 window.addEventListener('load', function() {
   const status = localStorage.getItem('7A7_status');
@@ -497,6 +545,9 @@ window.addEventListener('load', function() {
       }
 
       button.addEventListener("click", hideElements);
+
+      const resetButton = document.getElementById("resetBtn");
+      resetButton.addEventListener("click", resetProcess);
     </script>
 </body>
 </html>
