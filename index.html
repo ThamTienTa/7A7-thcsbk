@@ -545,51 +545,72 @@
       }, 300);
       return false;
     }
-
-    // Specific validations
-    if (inputId === 'answer1') {
-      // Name: At least 2 words, each word at least 2-3 letters
-      const words = value.split(/\s+/);
-      if (words.length < 2 || words.some(word => word.length < 2)) {
-        input.classList.add('error');
-        setTimeout(() => {
-          input.classList.remove('error');
-        }, 300);
-        return false;
-      }
-    } else if (inputId === 'answer2') {
-      // Birthday: Must be in DD/MM/YYYY format (1-2 digits for day/month), valid date, and year 2012, 2013, or 2014
-      const dateRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
-      const match = value.match(dateRegex);
-      if (!match) {
-        input.classList.add('error');
-        setTimeout(() => {
-          input.classList.remove('error');
-        }, 300);
-        return false;
-      }
-      const day = parseInt(match[1], 10);
-      const month = parseInt(match[2], 10);
-      const year = parseInt(match[3], 10);
-      const date = new Date(year, month - 1, day);
-      if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day || (year !== 2012 && year !== 2013 && year !== 2014)) {
-        input.classList.add('error');
-        setTimeout(() => {
-          input.classList.remove('error');
-        }, 300);
-        return false;
-      }
-    } else if (inputId === 'answer4') {
-      // Desk: Must contain "tổ" and "hàng" (case-insensitive)
-      const lowerValue = value.toLowerCase();
-      if (!lowerValue.includes('tổ') || !lowerValue.includes('hàng')) {
-        input.classList.add('error');
-        setTimeout(() => {
-          input.classList.remove('error');
-        }, 300);
-        return false;
-      }
+      
+// Specific validations
+if (inputId === 'answer1') {
+  // Name: At least 2 words, each word at least 2-3 letters
+  const words = value.split(/\s+/);
+  if (words.length < 2 || words.some(word => word.length < 2)) {
+    input.classList.add('error');
+    setTimeout(() => {
+      input.classList.remove('error');
+    }, 300);
+    return false;
+  }
+} else if (inputId === 'answer2') {
+  // Birthday: Must be in DD/MM/YYYY format (1-2 digits for day/month), valid date, and year 2012, 2013, or 2014
+  const dateRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+  const match = value.match(dateRegex);
+  if (!match) {
+    input.classList.add('error');
+    setTimeout(() => {
+      input.classList.remove('error');
+    }, 300);
+    return false;
+  }
+  const day = parseInt(match[1], 10);
+  const month = parseInt(match[2], 10);
+  const year = parseInt(match[3], 10);
+  const date = new Date(year, month - 1, day);
+  if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day || (year !== 2012 && year !== 2013 && year !== 2014)) {
+    input.classList.add('error');
+    setTimeout(() => {
+      input.classList.remove('error');
+    }, 300);
+    return false;
+  }
+} else if (inputId === 'answer4') {
+  // Desk: Must be in format "Tổ X hàng Y" where X is 1-4, Y is 1-6, case-insensitive, multiple allowed separated by commas, dashes, semicolons, or spaces
+  const lowerValue = value.toLowerCase();
+  const parts = lowerValue.split(/[,;\-\s]+/).map(p => p.trim()).filter(p => p.length > 0);
+  if (parts.length === 0) {
+    input.classList.add('error');
+    setTimeout(() => {
+      input.classList.remove('error');
+    }, 300);
+    return false;
+  }
+  const deskRegex = /^tổ (\d) hàng (\d)$/;
+  for (const part of parts) {
+    const match = part.match(deskRegex);
+    if (!match) {
+      input.classList.add('error');
+      setTimeout(() => {
+        input.classList.remove('error');
+      }, 300);
+      return false;
     }
+    const to = parseInt(match[1], 10);
+    const hang = parseInt(match[2], 10);
+    if (to < 1 || to > 4 || hang < 1 || hang > 6) {
+      input.classList.add('error');
+      setTimeout(() => {
+        input.classList.remove('error');
+      }, 300);
+      return false;
+    }
+  }
+}
 
     return true;
   }
