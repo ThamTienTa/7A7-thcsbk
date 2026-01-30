@@ -69,13 +69,37 @@
     
     <button class="button" onclick="loadAnswers()">Tải lại câu trả lời</button>
     <button class="button" onclick="downloadAnswers()">Tải xuống JSON</button>
-    <button class="button" onclick="acceptAndReset()">Accept</button>  <!-- New Accept button -->
+    <button class="button" onclick="acceptAndReset()">Accept</button>
     
     <div class="answers-list" id="answersList">
         <p class="no-answers">Chưa có câu trả lời nào. Nhấn "Tải lại câu trả lời" để kiểm tra.</p>
     </div>
 
     <script>
+      // Password for admin access (change this to your desired password)
+      const PASSWORD = 'admin123';  // ← CHANGE THIS TO YOUR PASSWORD
+
+      // Password check on page load (flag check commented out for testing)
+      window.addEventListener('load', function() {
+        // const hasAccess = localStorage.getItem('7A7_admin_access');
+        // if (!hasAccess) {
+        //   alert('Access denied. Please use the correct path.');
+        //   window.location.href = 'index.html';
+        //   return;
+        // }
+        // localStorage.removeItem('7A7_admin_access');
+        
+        // Now run the password check
+        const enteredPassword = prompt('Enter the admin password to access this panel:');
+        if (enteredPassword !== PASSWORD) {
+          alert('Incorrect password. Access denied.');
+          window.location.href = './index.html';
+          return;
+        }
+        // If password is correct, proceed to load answers
+        loadAnswers();
+      });
+
       function loadAnswers() {
         const answersList = document.getElementById('answersList');
         answersList.innerHTML = ''; // Clear previous content
@@ -177,32 +201,6 @@
           alert('Đã chấp nhận và reset. Trang chính giờ sẽ hiển thị "still working on".');
         }
       }
-
-      // Load answers on page load
-      window.addEventListener('load', loadAnswers);
-    // Check for admin access flag on load
-window.addEventListener('load', function() {
-  const hasAccess = localStorage.getItem('7A7_admin_access');
-  if (!hasAccess) {
-    // No flag? Redirect back to main page (direct access blocked)
-    alert('Access denied. Please use the correct path.');
-    window.location.href = 'index.html';  // Redirect to index.html
-    return;
-  }
-  // If flag exists, clear it and proceed to password check
-  localStorage.removeItem('7A7_admin_access');
-  
-  // Now run the password check (existing code)
-  const enteredPassword = prompt('Enter the admin password to access this panel:');
-  if (enteredPassword !== PASSWORD) {
-    alert('Incorrect password. Access denied.');
-    window.location.href = './index.html';
-    return;
-  }
-  // If password is correct, proceed to load answers
-  loadAnswers();
-});
-</script>
+    </script>
 </body>
 </html>
-
