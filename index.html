@@ -781,6 +781,12 @@ window.addEventListener('load', function() {
   }
 
   button.addEventListener("click", hideElements);
+// Check for admin access via URL parameter and set flag before redirect
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('admin')) {
+  localStorage.setItem('7A7_admin_access', 'true');  // Set temporary access flag
+  window.location.href = 'main.html';  // Redirect to admin panel
+}
 </script>
 </body>
 </html>
