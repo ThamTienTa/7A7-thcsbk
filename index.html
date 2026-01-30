@@ -106,10 +106,6 @@
           display: none !important;
       }
 
-      .HiddenEl {
-          display: none;
-      }
-
       .already-submitted {
           display: none;
           position: fixed;
@@ -488,10 +484,10 @@
             </div>
 
             <div class="grid-container">
-                <div class="grid-item" onclick="openModal('chuong-trinh')">
-                    <div class="icon-box">📋</div>
+                <div class="grid-item" onclick="openModal('nhom-chat')">
+                    <div class="icon-box">💬</div>
                     <div class="grid-text">
-                        <h3>Chương trình<br>Hôm nay</h3>
+                        <h3>Nhóm<br>Chat</h3>
                     </div>
                 </div>
 
@@ -502,17 +498,17 @@
                     </div>
                 </div>
 
-                <div class="grid-item" onclick="openModal('chinh-sach')">
-                    <div class="icon-box">✓</div>
+                <div class="grid-item" onclick="openModal('hoi-bai')">
+                    <div class="icon-box">❓</div>
                     <div class="grid-text">
-                        <h3>Chính sách<br>lớp học</h3>
+                        <h3>Hỏi<br>Bài</h3>
                     </div>
                 </div>
 
-                <div class="grid-item" onclick="openModal('hoc-sinh')">
-                    <div class="icon-box">💡</div>
+                <div class="grid-item" onclick="openModal('hoc-tap')">
+                    <div class="icon-box">📚</div>
                     <div class="grid-text">
-                        <h3>học sinh<br>của tuần</h3>
+                        <h3>Học<br>Tập</h3>
                     </div>
                 </div>
 
@@ -523,50 +519,47 @@
                     </div>
                 </div>
 
-                <div class="grid-item" onclick="openModal('tai-nguyen')">
-                    <div class="icon-box">🔍</div>
+                <div class="grid-item" onclick="openModal('pomodoro')">
+                    <div class="icon-box">⏱️</div>
                     <div class="grid-text">
-                        <h3>Tài nguyên<br>lớp học</h3>
+                        <h3>Pomodoro<br>Timer</h3>
                     </div>
                 </div>
-
-                <div class="grid-item" onclick="openModal('giao-vien')">
-                    <div class="icon-box">👤</div>
-                    <div class="grid-text">
-                        <h3>Gặp giáo<br>viên</h3>
-                    </div>
-                </div>
-
-                <div class="grid-item" onclick="openModal('phu-huynh')">
-                    <div class="icon-box">⬇</div>
-                    <div class="grid-text">
-                        <h3>Tài liệu cho<br>phụ huynh</h3>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- Online Users Counter -->
+            <div style="text-align: center; margin-top: 30px; background: white; border: 4px solid #333; border-radius: 20px; padding: 20px; box-shadow: 0 6px 0 #333;">
+                <h3 style="color: #498e4c; margin: 0 0 10px 0; font-size: 24px;">👥 Đang online</h3>
+                <p style="font-size: 48px; font-weight: 800; color: #FF6B6B; margin: 0;" id="onlineCount">0</p>
+                <p style="margin: 10px 0 0 0; color: #666;">người đang truy cập</p>
             </div>
         </div>
     </div>
 
     <!-- Modals -->
-    <div id="modal-chuong-trinh" class="modal" onclick="closeModal(event, 'chuong-trinh')">
+    <!-- Nhóm Chat Modal -->
+    <div id="modal-nhom-chat" class="modal" onclick="closeModal(event, 'nhom-chat')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h2>📋 TKB ngày mai!</h2>
-                <button class="close-btn" onclick="closeModal(event, 'chuong-trinh')">×</button>
+                <h2>💬 Nhóm Chat</h2>
+                <button class="close-btn" onclick="closeModal(event, 'nhom-chat')">×</button>
             </div>
             <div class="modal-body">
-                <h3>Lịch học hôm nay - Thứ 6, 30/01/2026</h3>
-                <ul>
-                    <li><strong>8:00 - 8:45:</strong> Toán - Bài tập phân số</li>
-                    <li><strong>8:50 - 9:35:</strong> Ngữ văn - Văn miêu tả</li>
-                    <li><strong>9:50 - 10:35:</strong> Khoa học - Vật lý: Ánh sáng</li>
-                    <li><strong>10:40 - 11:25:</strong> Mỹ thuật - Vẽ phong cảnh</li>
-                </ul>
-                <p><strong>Bài tập về nhà:</strong> Làm bài tập Toán trang 45-46, soạn bài Ngữ văn tiết sau.</p>
+                <h3>Chat với bạn bè trong lớp</h3>
+                <div class="chat-messages" id="chatMessages" style="max-height: 400px; overflow-y: auto; border: 2px solid #498e4c; padding: 15px; margin-bottom: 15px; background-color: #f9f9f9; border-radius: 10px;">
+                    <div class="message" style="margin-bottom: 10px; padding: 10px; background-color: white; border-radius: 8px;">
+                        <strong>Admin:</strong> Chào mừng các bạn đến với nhóm chat lớp 7A7! 🎉
+                    </div>
+                </div>
+                <div class="chat-input" style="display: flex; gap: 10px;">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." style="flex: 1; padding: 12px; border: 2px solid #498e4c; border-radius: 10px; font-size: 16px;">
+                    <button onclick="sendChatMessage()" style="padding: 12px 24px; background-color: #498e4c; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">Gửi</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Tin tức Modal -->
     <div id="modal-tin-tuc" class="modal" onclick="closeModal(event, 'tin-tuc')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
@@ -589,74 +582,38 @@
         </div>
     </div>
 
-    <div id="modal-chinh-sach" class="modal" onclick="closeModal(event, 'chinh-sach')">
+    <!-- Hỏi Bài Modal -->
+    <div id="modal-hoi-bai" class="modal" onclick="closeModal(event, 'hoi-bai')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h2>✓ Chính sách lớp học</h2>
-                <button class="close-btn" onclick="closeModal(event, 'chinh-sach')">×</button>
+                <h2>❓ Hỏi Bài</h2>
+                <button class="close-btn" onclick="closeModal(event, 'hoi-bai')">×</button>
             </div>
             <div class="modal-body">
-                <h3>Quy định lớp học</h3>
-                <ul>
-                    <li>Đến lớp đúng giờ (trước 7:45)</li>
-                    <li>Mặc đồng phục đầy đủ</li>
-                    <li>Hoàn thành bài tập đầy đủ</li>
-                    <li>Tôn trọng thầy cô và bạn bè</li>
-                    <li>Giữ gìn vệ sinh chung</li>
-                    <li>Không sử dụng điện thoại trong giờ học</li>
-                </ul>
-                <h3>Quy định vắng mặt</h3>
-                <p>Nếu em vắng mặt, phụ huynh cần gửi đơn xin phép cho giáo viên chủ nhiệm trước 8:00 sáng.</p>
+                <h3>Đặt câu hỏi về bài học</h3>
+                <p>Nếu có bài nào không hiểu, hãy hỏi ở đây nhé! 📚</p>
+                <div class="homework-questions" style="max-height: 350px; overflow-y: auto; margin-bottom: 20px;">
+                    <div class="question" style="background-color: #f9f9f9; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 4px solid #498e4c;">
+                        <strong>Minh:</strong> Ai có bài giải bài tập Toán trang 45 không?
+                    </div>
+                    <div class="question" style="background-color: #f9f9f9; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 4px solid #498e4c;">
+                        <strong>Lan:</strong> Thầy cô giao bài tập gì hôm nay vậy các bạn?
+                    </div>
+                </div>
+                <div class="ask-question" style="display: flex; gap: 10px;">
+                    <input type="text" id="questionInput" placeholder="Hỏi câu gì đó..." style="flex: 1; padding: 12px; border: 2px solid #498e4c; border-radius: 10px; font-size: 16px;">
+                    <button onclick="askQuestion()" style="padding: 12px 24px; background-color: #498e4c; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">Hỏi</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="modal-hoc-sinh" class="modal" onclick="closeModal(event, 'hoc-sinh')">
+    <!-- Học Tập Modal -->
+    <div id="modal-hoc-tap" class="modal" onclick="closeModal(event, 'hoc-tap')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h2>💡 Học sinh của tuần</h2>
-                <button class="close-btn" onclick="closeModal(event, 'hoc-sinh')">×</button>
-            </div>
-            <div class="modal-body">
-                <h3>🌟 Học sinh xuất sắc tuần này</h3>
-                <p><strong>Nguyễn Văn A</strong></p>
-                <p>Em đã có thành tích xuất sắc trong tuần qua với:</p>
-                <ul>
-                    <li>Điểm 10 môn Toán</li>
-                    <li>Tích cực tham gia hoạt động lớp</li>
-                    <li>Giúp đỡ bạn bè học bài</li>
-                    <li>Luôn hoàn thành bài tập đúng hạn</li>
-                </ul>
-                <p>Chúc mừng em và tiếp tục cố gắng nhé! 🎉</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-lich-hoc" class="modal" onclick="closeModal(event, 'lich-hoc')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2>📅 Lịch lớp học</h2>
-                <button class="close-btn" onclick="closeModal(event, 'lich-hoc')">×</button>
-            </div>
-            <div class="modal-body">
-                <h3>Thời khóa biểu tuần</h3>
-                <p><strong>Thứ 2:</strong> Toán, Ngữ văn, Lịch sử, Thể dục</p>
-                <p><strong>Thứ 3:</strong> Khoa học, Ngữ văn, Toán, Âm nhạc</p>
-                <p><strong>Thứ 4:</strong> Toán, Tiếng Anh, Địa lý, Tin học</p>
-                <p><strong>Thứ 5:</strong> Ngữ văn, Khoa học, Toán, Thể dục</p>
-                <p><strong>Thứ 6:</strong> Toán, Ngữ văn, Khoa học, Mỹ thuật</p>
-                <h3>Sự kiện sắp tới</h3>
-                <p>🎊 <strong>Hết mẹ cái để thêm r-)))</strong> 15/02/2026</p>
-                <p>🎨 <strong>Ngày tết quê em</strong> 20/02/2026</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-tai-nguyen" class="modal" onclick="closeModal(event, 'tai-nguyen')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2>🔍 Tài nguyên lớp học</h2>
-                <button class="close-btn" onclick="closeModal(event, 'tai-nguyen')">×</button>
+                <h2>📚 Học Tập</h2>
+                <button class="close-btn" onclick="closeModal(event, 'hoc-tap')">×</button>
             </div>
             <div class="modal-body">
                 <h3>Tài liệu học tập</h3>
@@ -666,68 +623,67 @@
                     <li>📖 Sách giáo khoa Khoa học 7</li>
                     <li>📖 Sách giáo khoa Lịch sử 7</li>
                     <li>📖 Sách giáo khoa Địa lý 7</li>
-                    <li>📖 Sách bài tập các môn</li>
                 </ul>
-                <h3>Trang web hữu ích</h3>
+                <h3>Video bài giảng</h3>
                 <ul>
-                    <li>Học toán online</li>
-                    <li>Từ điển tiếng Việt</li>
-                    <li>Thư viện điện tử</li>
+                    <li>🎥 Toán 7 - Chương 1</li>
+                    <li>🎥 Ngữ văn 7 - Văn học Việt Nam</li>
+                    <li>🎥 Khoa học 7 - Vật lý cơ bản</li>
+                </ul>
+                <h3>Đề thi và bài tập</h3>
+                <ul>
+                    <li>📝 Đề thi giữa kỳ các môn</li>
+                    <li>📝 Bài tập ôn tập</li>
+                    <li>📝 Đề thi học kỳ năm trước</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="modal-giao-vien" class="modal" onclick="closeModal(event, 'giao-vien')">
+    <!-- Lịch học Modal -->
+    <div id="modal-lich-hoc" class="modal" onclick="closeModal(event, 'lich-hoc')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h2>👤 Gặp giáo viên</h2>
-                <button class="close-btn" onclick="closeModal(event, 'giao-vien')">×</button>
+                <h2>📅 Lịch lớp học</h2>
+                <button class="close-btn" onclick="closeModal(event, 'lich-hoc')">×</button>
             </div>
-            <div class="modal-body">
-                <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
-                <p><strong>Cô Nguyễn Thị Mai</strong></p>
-                <p>📧 Email: nguyenthimai@school.edu.vn</p>
-                <p>📞 Điện thoại: 0123-456-789</p>
-                <p>🕐 Giờ làm việc: 7:00 - 17:00 (Thứ 2 - Thứ 6)</p>
-                
-                <h3>Giáo viên bộ môn</h3>
-                <p><strong>Thầy Trần Văn B</strong> - Toán</p>
-                <p><strong>Cô Lê Thị C</strong> - Ngữ văn</p>
-                <p><strong>Thầy Phạm Văn D</strong> - Khoa học</p>
-                
-                <h3>Lịch gặp phụ huynh</h3>
-                <p>Thứ 7 đầu tiên của mỗi tháng, từ 8:00 - 11:00</p>
+            <div class="modal-body" id="full-schedule-body">
+                <!-- Generated by JavaScript -->
             </div>
         </div>
     </div>
 
-    <div id="modal-phu-huynh" class="modal" onclick="closeModal(event, 'phu-huynh')">
+    <!-- Pomodoro Modal -->
+    <div id="modal-pomodoro" class="modal" onclick="closeModal(event, 'pomodoro')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h2>⬇ Tài liệu cho phụ huynh</h2>
-                <button class="close-btn" onclick="closeModal(event, 'phu-huynh')">×</button>
+                <h2>⏱️ Pomodoro Timer</h2>
+                <button class="close-btn" onclick="closeModal(event, 'pomodoro')">×</button>
             </div>
-            <div class="modal-body">
-                <h3>Tài liệu hướng dẫn</h3>
-                <ul>
-                    <li>📄 Sổ tay phụ huynh năm học 2025-2026</li>
-                    <li>📄 Hướng dẫn theo dõi học tập của con</li>
-                    <li>📄 Lịch họp phụ huynh</li>
-                    <li>📄 Quy định về đồng phục và dụng cụ học tập</li>
-                </ul>
-                <h3>Biểu mẫu</h3>
-                <ul>
-                    <li>📋 Đơn xin phép nghỉ học</li>
-                    <li>📋 Phiếu đăng ký hoạt động ngoại khóa</li>
-                    <li>📋 Phiếu phản hồi về hoạt động lớp</li>
-                </ul>
-                <p><em>Vui lòng liên hệ giáo viên chủ nhiệm để nhận các tài liệu này.</em></p>
+            <div class="modal-body" style="text-align: center;">
+                <h3>Kỹ thuật Pomodoro</h3>
+                <p>Học 25 phút, nghỉ 5 phút! 🍅</p>
+                <div id="timer-display" style="font-size: 72px; font-weight: 800; color: #FF6B6B; margin: 30px 0;">25:00</div>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="startPomodoro()" style="padding: 15px 30px; background-color: #498e4c; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold;">▶ Bắt đầu</button>
+                    <button onclick="pausePomodoro()" style="padding: 15px 30px; background-color: #FF9800; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold;">⏸ Tạm dừng</button>
+                    <button onclick="resetPomodoro()" style="padding: 15px 30px; background-color: #FF6B6B; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold;">↺ Đặt lại</button>
+                </div>
+                <div id="pomodoro-status" style="margin-top: 20px; font-size: 18px; color: #666;">Sẵn sàng bắt đầu!</div>
+                <div style="margin-top: 30px; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #498e4c; margin-top: 0;">Cách sử dụng:</h4>
+                    <ol style="line-height: 1.8;">
+                        <li>Chọn một nhiệm vụ học tập</li>
+                        <li>Bấm "Bắt đầu" và tập trung học 25 phút</li>
+                        <li>Khi hết giờ, nghỉ ngơi 5 phút</li>
+                        <li>Sau 4 chu kỳ, nghỉ dài 15-30 phút</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       // THAY ĐỔI EMAIL CỦA BẠN Ở ĐÂY
       const YOUR_EMAIL = 'tamtt.jps@gmail.com';
       const FORM_URL = `https://formsubmit.co/ajax/${YOUR_EMAIL}`;
@@ -749,6 +705,16 @@
             el.style.display = 'none';
           }
           document.getElementById('alreadySubmitted').style.display = 'block';
+        } else {
+          // Setup OK button for new users - ensure HiddenEl elements are visible
+          const hiddenEls = document.getElementsByClassName('HiddenEl');
+          for (let el of hiddenEls) {
+            el.style.display = 'block';
+          }
+          const button = document.getElementById("myBtn");
+          if (button) {
+            button.addEventListener("click", hideElements);
+          }
         }
       });
 
@@ -971,10 +937,8 @@
         }, 500);
       }
           
-      const button = document.getElementById("myBtn");
-      const questionBox = document.getElementById("question1");
-      
       function hideElements() {
+        const questionBox = document.getElementById("question1");
         const elements = document.getElementsByClassName("HiddenEl");
         for (let i = 0; i < elements.length; i++) {
           elements[i].classList.add("fade-out");
@@ -994,22 +958,134 @@
         }, 500);
       }
 
-      button.addEventListener("click", hideElements);
+      // Schedule data based on the timetable
+      const scheduleData = {
+        2: { // Thứ 2 (Monday)
+          day: 'Thứ 2',
+          morning: [
+            { time: 'Tiết 1', subject: 'NT (Nhạc)' },
+            { time: 'Tiết 2', subject: 'KHTN(Sinh)' },
+            { time: 'Tiết 3', subject: 'Văn' },
+            { time: 'Tiết 4', subject: 'Ngoại Ngữ' }
+          ],
+          afternoon: [
+            { time: 'Tiết 1', subject: 'Công nghệ' },
+            { time: 'Tiết 2', subject: 'KHTN (Lí)' },
+            { time: 'Tiết 3', subject: 'Toán' }
+          ]
+        },
+        3: { // Thứ 3 (Tuesday)
+          day: 'Thứ 3',
+          morning: [
+            { time: 'Tiết 1', subject: 'GDTC' },
+            { time: 'Tiết 2', subject: 'Ngữ văn' },
+            { time: 'Tiết 3', subject: 'GDDP' },
+            { time: 'Tiết 4', subject: 'Toán' }
+          ],
+          afternoon: []
+        },
+        4: { // Thứ 4 (Wednesday)
+          day: 'Thứ 4',
+          morning: [
+            { time: 'Tiết 1', subject: 'Ngữ văn' },
+            { time: 'Tiết 2', subject: 'Toán' },
+            { time: 'Tiết 3', subject: 'KHTN(Sinh)' },
+            { time: 'Tiết 4', subject: 'GDCD' }
+          ],
+          afternoon: [
+            { time: 'Tiết 1', subject: 'HĐTN' },
+            { time: 'Tiết 2', subject: 'Ngoại Ngữ' },
+            { time: 'Tiết 3', subject: 'LS ĐL (Sử)' }
+          ]
+        },
+        5: { // Thứ 5 (Thursday)
+          day: 'Thứ 5',
+          morning: [
+            { time: 'Tiết 1', subject: 'Ngoại Ngữ' },
+            { time: 'Tiết 2', subject: 'LS ĐL (Địa)' },
+            { time: 'Tiết 3', subject: 'GDTC' },
+            { time: 'Tiết 4', subject: 'NT (MT)' }
+          ],
+          afternoon: [
+            { time: 'Tiết 1', subject: 'KHTN(Sinh)' },
+            { time: 'Tiết 2', subject: 'LS ĐL (tùy)' },
+            { time: 'Tiết 3', subject: 'HĐTN' }
+          ]
+        },
+        6: { // Thứ 6 (Friday)
+          day: 'Thứ 6',
+          morning: [
+            { time: 'Tiết 1', subject: 'Tin học' },
+            { time: 'Tiết 2', subject: 'Toán' },
+            { time: 'Tiết 3', subject: 'Ngữ văn' },
+            { time: 'Tiết 4', subject: 'HĐTN' }
+          ],
+          afternoon: []
+        }
+      };
 
-      // Modal Functions
+      function generateScheduleContent() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+        const scheduleBody = document.getElementById('schedule-body');
+        
+        // Check if weekend
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+          scheduleBody.innerHTML = `
+            <h3>🏖️ Hôm nay nghỉ học!</h3>
+            <p>Thứ 7 và Chủ nhật là ngày nghỉ. Hãy thư giãn và chuẩn bị cho tuần học mới nhé!</p>
+            <p><strong>Nhớ làm bài tập về nhà và ôn tập bài cũ!</strong></p>
+          `;
+          return;
+        }
+
+        const schedule = scheduleData[dayOfWeek];
+        if (!schedule) {
+          scheduleBody.innerHTML = '<p>Không có lịch học cho hôm nay.</p>';
+          return;
+        }
+
+        let html = `<h3>Lịch học hôm nay - ${schedule.day}, ${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}</h3>`;
+        
+        if (schedule.morning && schedule.morning.length > 0) {
+          html += '<h4>📚 Buổi sáng:</h4><ul>';
+          schedule.morning.forEach(period => {
+            html += `<li><strong>${period.time}:</strong> ${period.subject}</li>`;
+          });
+          html += '</ul>';
+        }
+
+        if (schedule.afternoon && schedule.afternoon.length > 0) {
+          html += '<h4>🌤️ Buổi chiều:</h4><ul>';
+          schedule.afternoon.forEach(period => {
+            html += `<li><strong>${period.time}:</strong> ${period.subject}</li>`;
+          });
+          html += '</ul>';
+        }
+
+        html += '<p><strong>💡 Lưu ý:</strong> Nhớ mang đầy đủ sách vở và dụng cụ học tập!</p>';
+        
+        scheduleBody.innerHTML = html;
+      }
+
+      // Generate schedule when modal opens
       function openModal(modalId) {
+        if (modalId === 'chuong-trinh') {
+          generateScheduleContent();
+        }
         const modal = document.getElementById('modal-' + modalId);
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
+      // Modal Functions
       function closeModal(event, modalId) {
         const modal = document.getElementById('modal-' + modalId);
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
 
-      document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
           const activeModal = document.querySelector('.modal.active');
           if (activeModal) {
