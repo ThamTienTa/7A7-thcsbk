@@ -528,304 +528,332 @@
     </div>
 
     <script>
-      // Schedule data based on the timetable
-      const scheduleData = {
-        2: { // Thứ 2 (Monday)
-          day: 'Thứ 2',
-          morning: [
-            { time: 'Tiết 1', subject: 'NT (Nhạc)' },
-            { time: 'Tiết 2', subject: 'KHTN(Sinh)' },
-            { time: 'Tiết 3', subject: 'Văn' },
-            { time: 'Tiết 4', subject: 'Ngoại Ngữ' }
-          ],
-          afternoon: [
-            { time: 'Tiết 1', subject: 'Công nghệ' },
-            { time: 'Tiết 2', subject: 'KHTN (Lí)' },
-            { time: 'Tiết 3', subject: 'Toán' }
-          ]
-        },
-        3: { // Thứ 3 (Tuesday)
-          day: 'Thứ 3',
-          morning: [
-            { time: 'Tiết 1', subject: 'GDTC' },
-            { time: 'Tiết 2', subject: 'Ngữ văn' },
-            { time: 'Tiết 3', subject: 'GDDP' },
-            { time: 'Tiết 4', subject: 'Toán' }
-          ],
-          afternoon: []
-        },
-        4: { // Thứ 4 (Wednesday)
-          day: 'Thứ 4',
-          morning: [
-            { time: 'Tiết 1', subject: 'Ngữ văn' },
-            { time: 'Tiết 2', subject: 'Toán' },
-            { time: 'Tiết 3', subject: 'KHTN(Sinh)' },
-            { time: 'Tiết 4', subject: 'GDCD' }
-          ],
-          afternoon: [
-            { time: 'Tiết 1', subject: 'HĐTN' },
-            { time: 'Tiết 2', subject: 'Ngoại Ngữ' },
-            { time: 'Tiết 3', subject: 'LS ĐL (Sử)' }
-          ]
-        },
-        5: { // Thứ 5 (Thursday)
-          day: 'Thứ 5',
-          morning: [
-            { time: 'Tiết 1', subject: 'Ngoại Ngữ' },
-            { time: 'Tiết 2', subject: 'LS ĐL (Địa)' },
-            { time: 'Tiết 3', subject: 'GDTC' },
-            { time: 'Tiết 4', subject: 'NT (MT)' }
-          ],
-          afternoon: [
-            { time: 'Tiết 1', subject: 'KHTN(Sinh)' },
-            { time: 'Tiết 2', subject: 'LS ĐL (tùy)' },
-            { time: 'Tiết 3', subject: 'HĐTN' }
-          ]
-        },
-        6: { // Thứ 6 (Friday)
-          day: 'Thứ 6',
-          morning: [
-            { time: 'Tiết 1', subject: 'Tin học' },
-            { time: 'Tiết 2', subject: 'Toán' },
-            { time: 'Tiết 3', subject: 'Ngữ văn' },
-            { time: 'Tiết 4', subject: 'HĐTN' }
-          ],
-          afternoon: []
-        }
-      };
+// Schedule data based on the timetable
+const scheduleData = {
+  2: { // Thứ 2 (Monday)
+    day: 'Thứ 2',
+    morning: [
+      { time: 'Tiết 1', subject: 'NT (Nhạc)' },
+      { time: 'Tiết 2', subject: 'KHTN(Sinh)' },
+      { time: 'Tiết 3', subject: 'Văn' },
+      { time: 'Tiết 4', subject: 'Ngoại Ngữ' }
+    ],
+    afternoon: [
+      { time: 'Tiết 1', subject: 'Công nghệ' },
+      { time: 'Tiết 2', subject: 'KHTN (Lí)' },
+      { time: 'Tiết 3', subject: 'Toán' }
+    ]
+  },
+  3: { // Thứ 3 (Tuesday)
+    day: 'Thứ 3',
+    morning: [
+      { time: 'Tiết 1', subject: 'GDTC' },
+      { time: 'Tiết 2', subject: 'Ngữ văn' },
+      { time: 'Tiết 3', subject: 'GDDP' },
+      { time: 'Tiết 4', subject: 'Toán' }
+    ],
+    afternoon: []
+  },
+  4: { // Thứ 4 (Wednesday)
+    day: 'Thứ 4',
+    morning: [
+      { time: 'Tiết 1', subject: 'Ngữ văn' },
+      { time: 'Tiết 2', subject: 'Toán' },
+      { time: 'Tiết 3', subject: 'KHTN(Sinh)' },
+      { time: 'Tiết 4', subject: 'GDCD' }
+    ],
+    afternoon: [
+      { time: 'Tiết 1', subject: 'HĐTN' },
+      { time: 'Tiết 2', subject: 'Ngoại Ngữ' },
+      { time: 'Tiết 3', subject: 'LS ĐL (Sử)' }
+    ]
+  },
+  5: { // Thứ 5 (Thursday)
+    day: 'Thứ 5',
+    morning: [
+      { time: 'Tiết 1', subject: 'Ngoại Ngữ' },
+      { time: 'Tiết 2', subject: 'LS ĐL (Địa)' },
+      { time: 'Tiết 3', subject: 'GDTC' },
+      { time: 'Tiết 4', subject: 'NT (MT)' }
+    ],
+    afternoon: [
+      { time: 'Tiết 1', subject: 'KHTN(Sinh)' },
+      { time: 'Tiết 2', subject: 'LS ĐL (tùy)' },
+      { time: 'Tiết 3', subject: 'HĐTN' }
+    ]
+  },
+  6: { // Thứ 6 (Friday)
+    day: 'Thứ 6',
+    morning: [
+      { time: 'Tiết 1', subject: 'Tin học' },
+      { time: 'Tiết 2', subject: 'Toán' },
+      { time: 'Tiết 3', subject: 'Ngữ văn' },
+      { time: 'Tiết 4', subject: 'HĐTN' }
+    ],
+    afternoon: []
+  }
+};
 
-      // Modal Functions
-      function openModal(modalId) {
-        if (modalId === 'lich-hoc') {
-          generateFullSchedule();
-        }
-        const modal = document.getElementById('modal-' + modalId);
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+// Modal Functions
+function openModal(modalId) {
+  if (modalId === 'lich-hoc') {
+    generateFullSchedule();
+  }
+  const modal = document.getElementById('modal-' + modalId);
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
-      function closeModal(event, modalId) {
-        const modal = document.getElementById('modal-' + modalId);
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
+function closeModal(event, modalId) {
+  const modal = document.getElementById('modal-' + modalId);
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
 
-      // Chat functions
-      function sendChatMessage() {
-        const input = document.getElementById('chatInput');
-        const message = input.value.trim();
-        if (message) {
-          const messagesDiv = document.getElementById('chatMessages');
-          const newMessage = document.createElement('div');
-          newMessage.className = 'message';
-          newMessage.style.marginBottom = '10px';
-          newMessage.style.padding = '10px';
-          newMessage.style.backgroundColor = 'white';
-          newMessage.style.borderRadius = '8px';
-          newMessage.innerHTML = `<strong>Bạn:</strong> ${message}`;
-          messagesDiv.appendChild(newMessage);
-          input.value = '';
-          messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-      }
+// Chat functions with shared storage
+let chatMessages = JSON.parse(localStorage.getItem('chatMessages') || '[]');
+let lastMessageCount = chatMessages.length;
 
-      // Question functions
-      function askQuestion() {
-        const input = document.getElementById('questionInput');
-        const question = input.value.trim();
-        if (question) {
-          const questionsDiv = document.querySelector('.homework-questions');
-          const newQuestion = document.createElement('div');
-          newQuestion.className = 'question';
-          newQuestion.style.backgroundColor = '#f9f9f9';
-          newQuestion.style.padding = '15px';
-          newQuestion.style.marginBottom = '10px';
-          newQuestion.style.borderRadius = '8px';
-          newQuestion.style.borderLeft = '4px solid #498e4c';
-          newQuestion.innerHTML = `<strong>Bạn:</strong> ${question}`;
-          questionsDiv.appendChild(newQuestion);
-          input.value = '';
-          questionsDiv.scrollTop = questionsDiv.scrollHeight;
-        }
-      }
+function updateChatDisplay() {
+  const messagesDiv = document.getElementById('chatMessages');
+  messagesDiv.innerHTML = '<div class="message" style="margin-bottom: 10px; padding: 10px; background-color: white; border-radius: 8px;"><strong>Admin:</strong> Chào mừng các bạn đến với nhóm chat lớp 7A7! 🎉</div>';
+  chatMessages.forEach(msg => {
+    const newMessage = document.createElement('div');
+    newMessage.className = 'message';
+    newMessage.style.marginBottom = '10px';
+    newMessage.style.padding = '10px';
+    newMessage.style.backgroundColor = 'white';
+    newMessage.style.borderRadius = '8px';
+    newMessage.innerHTML = `<strong>${msg.user}:</strong> ${msg.text}`;
+    messagesDiv.appendChild(newMessage);
+  });
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
 
-      // Enter key support for chat and questions
-      document.addEventListener('DOMContentLoaded', function() {
-        const chatInput = document.getElementById('chatInput');
-        if (chatInput) {
-          chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendChatMessage();
-          });
-        }
-        
-        const questionInput = document.getElementById('questionInput');
-        if (questionInput) {
-          questionInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') askQuestion();
-          });
-        }
-      });
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (message) {
+    const userName = localStorage.getItem('userName') || 'Bạn'; // Simple username, can be improved
+    const newMsg = { user: userName, text: message, timestamp: Date.now() };
+    chatMessages.push(newMsg);
+    localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+    input.value = '';
+    updateChatDisplay();
+  }
+}
 
-      // Pomodoro Timer
-      let pomodoroInterval = null;
-      let pomodoroSeconds = 25 * 60; // 25 minutes
-      let isWorkSession = true;
+// Question functions
+function askQuestion() {
+  const input = document.getElementById('questionInput');
+  const question = input.value.trim();
+  if (question) {
+    const questionsDiv = document.querySelector('.homework-questions');
+    const newQuestion = document.createElement('div');
+    newQuestion.className = 'question';
+    newQuestion.style.backgroundColor = '#f9f9f9';
+    newQuestion.style.padding = '15px';
+    newQuestion.style.marginBottom = '10px';
+    newQuestion.style.borderRadius = '8px';
+    newQuestion.style.borderLeft = '4px solid #498e4c';
+    newQuestion.innerHTML = `<strong>Bạn:</strong> ${question}`;
+    questionsDiv.appendChild(newQuestion);
+    input.value = '';
+    questionsDiv.scrollTop = questionsDiv.scrollHeight;
+  }
+}
 
-      function updatePomodoroDisplay() {
-        const minutes = Math.floor(pomodoroSeconds / 60);
-        const seconds = pomodoroSeconds % 60;
-        document.getElementById('timer-display').textContent = 
-          `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-      }
+// Enter key support for chat and questions
+document.addEventListener('DOMContentLoaded', function() {
+  const chatInput = document.getElementById('chatInput');
+  if (chatInput) {
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendChatMessage();
+    });
+  }
+  
+  const questionInput = document.getElementById('questionInput');
+  if (questionInput) {
+    questionInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') askQuestion();
+    });
+  }
+  
+  // Initialize chat display
+  updateChatDisplay();
+  
+  // Poll for new chat messages
+  setInterval(() => {
+    const currentMessages = JSON.parse(localStorage.getItem('chatMessages') || '[]');
+    if (currentMessages.length !== lastMessageCount) {
+      chatMessages = currentMessages;
+      lastMessageCount = chatMessages.length;
+      updateChatDisplay();
+    }
+  }, 1000);
+});
 
-      function startPomodoro() {
-        if (pomodoroInterval) return; // Already running
-        
-        document.getElementById('pomodoro-status').textContent = isWorkSession ? 
-          '🎯 Đang học tập - Tập trung!' : '☕ Đang nghỉ ngơi';
-        
-        pomodoroInterval = setInterval(() => {
-          pomodoroSeconds--;
-          updatePomodoroDisplay();
-          
-          if (pomodoroSeconds <= 0) {
-            clearInterval(pomodoroInterval);
-            pomodoroInterval = null;
-            
-            if (isWorkSession) {
-              alert('🎉 Hết giờ học! Nghỉ ngơi 5 phút nhé!');
-              pomodoroSeconds = 5 * 60;
-              isWorkSession = false;
-            } else {
-              alert('⏰ Hết giờ nghỉ! Tiếp tục học thôi!');
-              pomodoroSeconds = 25 * 60;
-              isWorkSession = true;
-            }
-            updatePomodoroDisplay();
-            document.getElementById('pomodoro-status').textContent = 'Sẵn sàng bắt đầu!';
-          }
-        }, 1000);
-      }
+// Pomodoro Timer
+let pomodoroInterval = null;
+let pomodoroSeconds = 25 * 60; // 25 minutes
+let isWorkSession = true;
 
-      function pausePomodoro() {
-        if (pomodoroInterval) {
-          clearInterval(pomodoroInterval);
-          pomodoroInterval = null;
-          document.getElementById('pomodoro-status').textContent = '⏸ Đã tạm dừng';
-        }
-      }
+function updatePomodoroDisplay() {
+  const minutes = Math.floor(pomodoroSeconds / 60);
+  const seconds = pomodoroSeconds % 60;
+  document.getElementById('timer-display').textContent = 
+    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
 
-      function resetPomodoro() {
-        if (pomodoroInterval) {
-          clearInterval(pomodoroInterval);
-          pomodoroInterval = null;
-        }
+function startPomodoro() {
+  if (pomodoroInterval) return; // Already running
+  
+  document.getElementById('pomodoro-status').textContent = isWorkSession ? 
+    '🎯 Đang học tập - Tập trung!' : '☕ Đang nghỉ ngơi';
+  
+  pomodoroInterval = setInterval(() => {
+    pomodoroSeconds--;
+    updatePomodoroDisplay();
+    
+    if (pomodoroSeconds <= 0) {
+      clearInterval(pomodoroInterval);
+      pomodoroInterval = null;
+      
+      if (isWorkSession) {
+        alert('🎉 Hết giờ học! Nghỉ ngơi 5 phút nhé!');
+        pomodoroSeconds = 5 * 60;
+        isWorkSession = false;
+      } else {
+        alert('⏰ Hết giờ nghỉ! Tiếp tục học thôi!');
         pomodoroSeconds = 25 * 60;
         isWorkSession = true;
-        updatePomodoroDisplay();
-        document.getElementById('pomodoro-status').textContent = 'Sẵn sàng bắt đầu!';
       }
+      updatePomodoroDisplay();
+      document.getElementById('pomodoro-status').textContent = 'Sẵn sàng bắt đầu!';
+    }
+  }, 1000);
+}
 
-      // Full schedule display
-      function generateFullSchedule() {
-        const scheduleBody = document.getElementById('full-schedule-body');
-        let html = '<h3>Thời khóa biểu tuần</h3>';
-        
-        const days = {
-          2: 'Thứ 2',
-          3: 'Thứ 3',
-          4: 'Thứ 4',
-          5: 'Thứ 5',
-          6: 'Thứ 6'
-        };
-        
-        for (let day in days) {
-          const schedule = scheduleData[day];
-          html += `<h4>${schedule.day}</h4>`;
-          
-          if (schedule.morning && schedule.morning.length > 0) {
-            html += '<p><strong>Sáng:</strong> ';
-            html += schedule.morning.map(p => p.subject).join(', ');
-            html += '</p>';
-          }
-          
-          if (schedule.afternoon && schedule.afternoon.length > 0) {
-            html += '<p><strong>Chiều:</strong> ';
-            html += schedule.afternoon.map(p => p.subject).join(', ');
-            html += '</p>';
-          }
-        }
-        
-        html += '<h3 style="margin-top: 30px;">Sự kiện sắp tới</h3>';
-        html += '<p>🎊 <strong>Ngày hội thể thao:</strong> 15/02/2026</p>';
-        html += '<p>🎨 <strong>Triển lãm mỹ thuật:</strong> 20/02/2026</p>';
-        
-        scheduleBody.innerHTML = html;
-      }
+function pausePomodoro() {
+  if (pomodoroInterval) {
+    clearInterval(pomodoroInterval);
+    pomodoroInterval = null;
+    document.getElementById('pomodoro-status').textContent = '⏸ Đã tạm dừng';
+  }
+}
 
-      // Real online counter using localStorage
-      const HEARTBEAT_INTERVAL = 5000; // 5 seconds
-      const ONLINE_TIMEOUT = 15000; // 15 seconds - if no heartbeat, consider offline
-      const userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+function resetPomodoro() {
+  if (pomodoroInterval) {
+    clearInterval(pomodoroInterval);
+    pomodoroInterval = null;
+  }
+  pomodoroSeconds = 25 * 60;
+  isWorkSession = true;
+  updatePomodoroDisplay();
+  document.getElementById('pomodoro-status').textContent = 'Sẵn sàng bắt đầu!';
+}
 
-      function updateHeartbeat() {
-        const now = Date.now();
-        const onlineUsers = JSON.parse(localStorage.getItem('onlineUsers') || '{}');
-        
-        // Add or update current user
-        onlineUsers[userId] = now;
-        
-        // Remove users who haven't sent heartbeat in ONLINE_TIMEOUT
-        Object.keys(onlineUsers).forEach(id => {
-          if (now - onlineUsers[id] > ONLINE_TIMEOUT) {
-            delete onlineUsers[id];
-          }
-        });
-        
-        localStorage.setItem('onlineUsers', JSON.stringify(onlineUsers));
-        updateOnlineDisplay(Object.keys(onlineUsers).length);
-      }
+// Full schedule display
+function generateFullSchedule() {
+  const scheduleBody = document.getElementById('full-schedule-body');
+  let html = '<h3>Thời khóa biểu tuần</h3>';
+  
+  const days = {
+    2: 'Thứ 2',
+    3: 'Thứ 3',
+    4: 'Thứ 4',
+    5: 'Thứ 5',
+    6: 'Thứ 6'
+  };
+  
+  for (let day in days) {
+    const schedule = scheduleData[day];
+    html += `<h4>${schedule.day}</h4>`;
+    
+    if (schedule.morning && schedule.morning.length > 0) {
+      html += '<p><strong>Sáng:</strong> ';
+      html += schedule.morning.map(p => p.subject).join(', ');
+      html += '</p>';
+    }
+    
+    if (schedule.afternoon && schedule.afternoon.length > 0) {
+      html += '<p><strong>Chiều:</strong> ';
+      html += schedule.afternoon.map(p => p.subject).join(', ');
+      html += '</p>';
+    }
+  }
+  
+  html += '<h3 style="margin-top: 30px;">Sự kiện sắp tới</h3>';
+  html += '<p>🎊 <strong>Ngày hội thể thao:</strong> 15/02/2026</p>';
+  html += '<p>🎨 <strong>Triển lãm mỹ thuật:</strong> 20/02/2026</p>';
+  
+  scheduleBody.innerHTML = html;
+}
 
-      function updateOnlineDisplay(count) {
-        document.getElementById('onlineCount').textContent = count;
-      }
+// Real online counter using localStorage
+const HEARTBEAT_INTERVAL = 5000; // 5 seconds
+const ONLINE_TIMEOUT = 15000; // 15 seconds - if no heartbeat, consider offline
+const userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
-      // Listen for localStorage changes from other tabs
-      window.addEventListener('storage', function(e) {
-        if (e.key === 'onlineUsers') {
-          const onlineUsers = JSON.parse(e.newValue || '{}');
-          const now = Date.now();
-          
-          // Filter out expired users
-          const activeUsers = Object.keys(onlineUsers).filter(id => {
-            return now - onlineUsers[id] <= ONLINE_TIMEOUT;
-          });
-          
-          updateOnlineDisplay(activeUsers.length);
-        }
-      });
+function updateHeartbeat() {
+  const now = Date.now();
+  const onlineUsers = JSON.parse(localStorage.getItem('onlineUsers') || '{}');
+  
+  // Add or update current user
+  onlineUsers[userId] = now;
+  
+  // Remove users who haven't sent heartbeat in ONLINE_TIMEOUT
+  Object.keys(onlineUsers).forEach(id => {
+    if (now - onlineUsers[id] > ONLINE_TIMEOUT) {
+      delete onlineUsers[id];
+    }
+  });
+  
+  localStorage.setItem('onlineUsers', JSON.stringify(onlineUsers));
+  updateOnlineDisplay(Object.keys(onlineUsers).length);
+}
 
-      // Send heartbeat regularly
-      setInterval(updateHeartbeat, HEARTBEAT_INTERVAL);
-      updateHeartbeat(); // Initial call
+function updateOnlineDisplay(count) {
+  document.getElementById('onlineCount').textContent = count;
+}
 
-      // Remove user when leaving
-      window.addEventListener('beforeunload', function() {
-        const onlineUsers = JSON.parse(localStorage.getItem('onlineUsers') || '{}');
-        delete onlineUsers[userId];
-        localStorage.setItem('onlineUsers', JSON.stringify(onlineUsers));
-      });
+// Listen for localStorage changes from other tabs
+window.addEventListener('storage', function(e) {
+  if (e.key === 'onlineUsers') {
+    const onlineUsers = JSON.parse(e.newValue || '{}');
+    const now = Date.now();
+    
+    // Filter out expired users
+    const activeUsers = Object.keys(onlineUsers).filter(id => {
+      return now - onlineUsers[id] <= ONLINE_TIMEOUT;
+    });
+    
+    updateOnlineDisplay(activeUsers.length);
+  }
+});
 
-      // Close modal with Escape key
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          const activeModal = document.querySelector('.modal.active');
-          if (activeModal) {
-            activeModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-          }
-        }
-      });
+// Send heartbeat regularly
+setInterval(updateHeartbeat, HEARTBEAT_INTERVAL);
+updateHeartbeat(); // Initial call
+
+// Remove user when leaving
+window.addEventListener('beforeunload', function() {
+  const onlineUsers = JSON.parse(localStorage.getItem('onlineUsers') || '{}');
+  delete onlineUsers[userId];
+  localStorage.setItem('onlineUsers', JSON.stringify(onlineUsers));
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const activeModal = document.querySelector('.modal.active');
+    if (activeModal) {
+      activeModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+});
     </script>
 </body>
 </html>
+
