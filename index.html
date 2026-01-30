@@ -137,172 +137,6 @@
     font-size: 24px;
     color: #FFFFFF;
 }
-
-.class-hub {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.class-hub h1 {
-    color: #498e4c;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.hub-tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.tab-button {
-    background-color: #f0f0f0;
-    border: 2px solid #498e4c;
-    color: #498e4c;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s;
-}
-
-.tab-button:hover, .tab-button.active {
-    background-color: #498e4c;
-    color: white;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.tab-content h2 {
-    color: #498e4c;
-    margin-bottom: 20px;
-}
-
-.chat-messages {
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-}
-
-.message {
-    margin-bottom: 10px;
-    padding: 8px;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.chat-input {
-    display: flex;
-    gap: 10px;
-}
-
-.chat-input input {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #498e4c;
-    border-radius: 5px;
-}
-
-.chat-input button {
-    padding: 10px 20px;
-    background-color: #498e4c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.chat-input button:hover {
-    background-color: #3b7d3c;
-}
-
-.study-resources ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.study-resources li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.announcements-list, .events-list, .homework-questions {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.announcement, .event, .question {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border-left: 4px solid #498e4c;
-}
-
-.announcement h4, .event h4 {
-    margin-top: 0;
-    color: #498e4c;
-}
-
-.ask-question {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.ask-question input {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #498e4c;
-    border-radius: 5px;
-}
-
-.ask-question button {
-    padding: 10px 20px;
-    background-color: #498e4c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.ask-question button:hover {
-    background-color: #3b7d3c;
-}
-
-.class-info h3 {
-    color: #498e4c;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.class-info ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.class-info li {
-    padding: 5px 0;
-}
     </style>
 </head>
 <body>
@@ -366,130 +200,6 @@
     <div class="question-container" id="final">
         <h2>Xong!!</h2>
         <p id="finalMessage">Đang gửi câu trả lời...</p>
-    </div>
-
-    <!-- Class Community Hub -->
-    <div class="class-hub" id="classHub" style="display: none;">
-        <h1>🏫 Lớp 7A7 Community Hub</h1>
-        
-        <!-- Navigation Tabs -->
-        <div class="hub-tabs">
-            <button class="tab-button active" onclick="showTab('chat')">💬 Chat</button>
-            <button class="tab-button" onclick="showTab('study')">📚 Study</button>
-            <button class="tab-button" onclick="showTab('announcements')">📢 Announcements</button>
-            <button class="tab-button" onclick="showTab('events')">🎉 Events</button>
-            <button class="tab-button" onclick="showTab('homework')">📝 Homework Help</button>
-            <button class="tab-button" onclick="showTab('info')">ℹ️ Class Info</button>
-        </div>
-        
-        <!-- Tab Content -->
-        <div id="chat" class="tab-content active">
-            <h2>Chat với nhau</h2>
-            <p>Đây là nơi để trò chuyện với các bạn trong lớp.</p>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message">
-                    <strong>Admin:</strong> Chào mừng các bạn đến với kênh chat của lớp 7A7!
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-                <button onclick="sendMessage()">Gửi</button>
-            </div>
-        </div>
-        
-        <div id="study" class="tab-content">
-            <h2>Study Together</h2>
-            <p>Nơi để học tập cùng nhau và chia sẻ tài liệu.</p>
-            <div class="study-resources">
-                <h3>Tài liệu học tập</h3>
-                <ul>
-                    <li>📖 Sách giáo khoa Toán 7</li>
-                    <li>📖 Sách giáo khoa Ngữ văn 7</li>
-                    <li>📖 Sách giáo khoa Khoa học 7</li>
-                    <li>📖 Sách giáo khoa Lịch sử 7</li>
-                </ul>
-                <h3>Lịch học</h3>
-                <p>Thứ 2: Toán, Ngữ văn</p>
-                <p>Thứ 3: Khoa học, Lịch sử</p>
-                <p>Thứ 4: Toán, Tiếng Anh</p>
-                <p>Thứ 5: Ngữ văn, Thể dục</p>
-                <p>Thứ 6: Khoa học, Mỹ thuật</p>
-            </div>
-        </div>
-        
-        <div id="announcements" class="tab-content">
-            <h2>Thông báo</h2>
-            <div class="announcements-list">
-                <div class="announcement">
-                    <h4>📅 Thông báo lịch thi</h4>
-                    <p>Kỳ thi giữa học kì 2 sẽ diễn ra vào tuần sau. Hãy ôn tập kỹ!</p>
-                    <small>Đăng ngày: 30/01/2026</small>
-                </div>
-                <div class="announcement">
-                    <h4>🏆 Cuộc thi toán học</h4>
-                    <p>Lớp 7A7 sẽ tham gia cuộc thi toán học cấp trường. Ai muốn tham gia đăng ký nhé!</p>
-                    <small>Đăng ngày: 25/01/2026</small>
-                </div>
-            </div>
-        </div>
-        
-        <div id="events" class="tab-content">
-            <h2>Sự kiện</h2>
-            <div class="events-list">
-                <div class="event">
-                    <h4>🎊 Ngày hội thể thao</h4>
-                    <p>Ngày: 15/02/2026</p>
-                    <p>Địa điểm: Sân trường</p>
-                    <p>Mọi người cùng tham gia nhé!</p>
-                </div>
-                <div class="event">
-                    <h4>🎨 Triển lãm mỹ thuật</h4>
-                    <p>Ngày: 20/02/2026</p>
-                    <p>Địa điểm: Phòng mỹ thuật</p>
-                    <p>Hãy mang tác phẩm của mình đến tham gia!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div id="homework" class="tab-content">
-            <h2>Hỏi đáp bài tập</h2>
-            <p>Hỏi về bài tập, câu hỏi về lớp, hoặc cần giúp đỡ gì thì post ở đây!</p>
-            <div class="homework-questions">
-                <div class="question">
-                    <strong>Minh:</strong> Ai có bài giải bài tập Toán trang 45 không?
-                </div>
-                <div class="question">
-                    <strong>Lan:</strong> Thầy cô giao bài tập gì hôm nay vậy các bạn?
-                </div>
-            </div>
-            <div class="ask-question">
-                <input type="text" id="questionInput" placeholder="Hỏi câu gì đó...">
-                <button onclick="askQuestion()">Hỏi</button>
-            </div>
-        </div>
-        
-        <div id="info" class="tab-content">
-            <h2>Thông tin lớp 7A7</h2>
-            <div class="class-info">
-                <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
-                <p>Cô Nguyễn Thị Mai</p>
-                
-                <h3>📊 Số lượng học sinh</h3>
-                <p>35 học sinh</p>
-                
-                <h3>📍 Phòng học</h3>
-                <p>Phòng 701</p>
-                
-                <h3>📞 Liên hệ</h3>
-                <p>Email: 7a7@school.edu.vn</p>
-                
-                <h3>🏆 Thành tích</h3>
-                <ul>
-                    <li>Giải nhất cuộc thi toán học cấp huyện 2025</li>
-                    <li>Giải nhì hội thi văn nghệ cấp trường 2025</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <!-- Still Working On Message -->
@@ -737,149 +447,7 @@
           
           const finalMessage = document.getElementById('finalMessage');
           if (success) {
-            finalMessage.innerHTML = 'Câu trả lời đã được gửi!<br>Chào mừng bạn đến với cộng đồng lớp 7A7!';
-            setTimeout(() => {
-              // Show the class hub
-              document.body.innerHTML = '';
-              document.body.style.backgroundColor = '#a9d593';
-              document.body.innerHTML = `
-                <div class="class-hub" id="classHub" style="display: block; margin: 20px;">
-                  <h1>🏫 Lớp 7A7 Community Hub</h1>
-                  
-                  <!-- Navigation Tabs -->
-                  <div class="hub-tabs">
-                      <button class="tab-button active" onclick="showTab('chat')">💬 Chat</button>
-                      <button class="tab-button" onclick="showTab('study')">📚 Study</button>
-                      <button class="tab-button" onclick="showTab('announcements')">📢 Announcements</button>
-                      <button class="tab-button" onclick="showTab('events')">🎉 Events</button>
-                      <button class="tab-button" onclick="showTab('homework')">📝 Homework Help</button>
-                      <button class="tab-button" onclick="showTab('info')">ℹ️ Class Info</button>
-                  </div>
-                  
-                  <!-- Tab Content -->
-                  <div id="chat" class="tab-content active">
-                      <h2>Chat với nhau</h2>
-                      <p>Đây là nơi để trò chuyện với các bạn trong lớp.</p>
-                      <div class="chat-messages" id="chatMessages">
-                          <div class="message">
-                              <strong>Admin:</strong> Chào mừng ${answers.name} đến với kênh chat của lớp 7A7!
-                          </div>
-                      </div>
-                      <div class="chat-input">
-                          <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-                          <button onclick="sendMessage()">Gửi</button>
-                      </div>
-                  </div>
-                  
-                  <div id="study" class="tab-content">
-                      <h2>Study Together</h2>
-                      <p>Nơi để học tập cùng nhau và chia sẻ tài liệu.</p>
-                      <div class="study-resources">
-                          <h3>Tài liệu học tập</h3>
-                          <ul>
-                              <li>📖 Sách giáo khoa Toán 7</li>
-                              <li>📖 Sách giáo khoa Ngữ văn 7</li>
-                              <li>📖 Sách giáo khoa Khoa học 7</li>
-                              <li>📖 Sách giáo khoa Lịch sử 7</li>
-                          </ul>
-                          <h3>Lịch học</h3>
-                          <p>Thứ 2: Toán, Ngữ văn</p>
-                          <p>Thứ 3: Khoa học, Lịch sử</p>
-                          <p>Thứ 4: Toán, Tiếng Anh</p>
-                          <p>Thứ 5: Ngữ văn, Thể dục</p>
-                          <p>Thứ 6: Khoa học, Mỹ thuật</p>
-                      </div>
-                  </div>
-                  
-                  <div id="announcements" class="tab-content">
-                      <h2>Thông báo</h2>
-                      <div class="announcements-list">
-                          <div class="announcement">
-                              <h4>📅 Thông báo lịch thi</h4>
-                              <p>Kỳ thi giữa học kì 2 sẽ diễn ra vào tuần sau. Hãy ôn tập kỹ!</p>
-                              <small>Đăng ngày: 30/01/2026</small>
-                          </div>
-                          <div class="announcement">
-                              <h4>🏆 Cuộc thi toán học</h4>
-                              <p>Lớp 7A7 sẽ tham gia cuộc thi toán học cấp trường. Ai muốn tham gia đăng ký nhé!</p>
-                              <small>Đăng ngày: 25/01/2026</small>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div id="events" class="tab-content">
-                      <h2>Sự kiện</h2>
-                      <div class="events-list">
-                          <div class="event">
-                              <h4>🎊 Ngày hội thể thao</h4>
-                              <p>Ngày: 15/02/2026</p>
-                              <p>Địa điểm: Sân trường</p>
-                              <p>Mọi người cùng tham gia nhé!</p>
-                          </div>
-                          <div class="event">
-                              <h4>🎨 Triển lãm mỹ thuật</h4>
-                              <p>Ngày: 20/02/2026</p>
-                              <p>Địa điểm: Phòng mỹ thuật</p>
-                              <p>Hãy mang tác phẩm của mình đến tham gia!</p>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div id="homework" class="tab-content">
-                      <h2>Hỏi đáp bài tập</h2>
-                      <p>Hỏi về bài tập, câu hỏi về lớp, hoặc cần giúp đỡ gì thì post ở đây!</p>
-                      <div class="homework-questions">
-                          <div class="question">
-                              <strong>Minh:</strong> Ai có bài giải bài tập Toán trang 45 không?
-                          </div>
-                          <div class="question">
-                              <strong>Lan:</strong> Thầy cô giao bài tập gì hôm nay vậy các bạn?
-                          </div>
-                      </div>
-                      <div class="ask-question">
-                          <input type="text" id="questionInput" placeholder="Hỏi câu gì đó...">
-                          <button onclick="askQuestion()">Hỏi</button>
-                      </div>
-                  </div>
-                  
-                  <div id="info" class="tab-content">
-                      <h2>Thông tin lớp 7A7</h2>
-                      <div class="class-info">
-                          <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
-                          <p>Cô Nguyễn Thị Mai</p>
-                          
-                          <h3>📊 Số lượng học sinh</h3>
-                          <p>35 học sinh</p>
-                          
-                          <h3>📍 Phòng học</h3>
-                          <p>Phòng 701</p>
-                          
-                          <h3>📞 Liên hệ</h3>
-                          <p>Email: 7a7@school.edu.vn</p>
-                          
-                          <h3>🏆 Thành tích</h3>
-                          <ul>
-                              <li>Giải nhất cuộc thi toán học cấp huyện 2025</li>
-                              <li>Giải nhì hội thi văn nghệ cấp trường 2025</li>
-                          </ul>
-                      </div>
-                  </div>
-                </div>
-              `;
-              // Re-attach event listeners
-              setTimeout(() => {
-                document.getElementById('chatInput').addEventListener('keypress', function(event) {
-                  if (event.key === 'Enter') {
-                    sendMessage();
-                  }
-                });
-                document.getElementById('questionInput').addEventListener('keypress', function(event) {
-                  if (event.key === 'Enter') {
-                    askQuestion();
-                  }
-                });
-              }, 100);
-            }, 2000);
+            finalMessage.innerHTML = 'Câu trả lời đã được gửi!<br>Hãy chờ 1-2 ngày để xác minh thành viên!';
           } else {
             finalMessage.innerHTML = 'Câu trả lời đã được lưu!<br><small>Sẽ gửi khi có internet.</small>';
           }
@@ -888,290 +456,56 @@
           localStorage.setItem('7A7_submitted', 'true');
         }, 500);
       }
+
+      function resetProcess() {
+        // Clear answers
+        for (let key in answers) {
+          delete answers[key];
+        }
+        
+        // Clear input values
+        const inputs = ['answer1', 'answer2', 'answer3', 'answer4'];
+        inputs.forEach(id => {
+          const input = document.getElementById(id);
+          if (input) input.value = '';
+        });
+        
+        // Hide all question containers and final
+        const containers = ['question1', 'question2', 'identity', 'question3', 'question4', 'final', 'alreadySubmitted'];
+        containers.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.add('hidden');
+            el.style.display = 'none';
+          }
+        });
+        
+        // Clear localStorage
+        localStorage.removeItem('7A7_submitted');
+        
+        // Show initial elements
+        const hiddenEls = document.getElementsByClassName('HiddenEl');
+        for (let el of hiddenEls) {
+          el.style.display = 'block';
+          el.classList.remove('fade-out');
+        }
+      }
           
 // Check if already submitted or in working status on page load
 window.addEventListener('load', function() {
   const status = localStorage.getItem('7A7_status');
   if (status === 'working') {
-    // Show class hub instead of "still working"
+    // Show "still working on" message and hide everything else
     document.body.innerHTML = '';
     document.body.style.backgroundColor = '#a9d593';
-    document.body.innerHTML = `
-      <div class="class-hub" id="classHub" style="display: block; margin: 20px;">
-        <h1>🏫 Lớp 7A7 Community Hub</h1>
-        
-        <!-- Navigation Tabs -->
-        <div class="hub-tabs">
-            <button class="tab-button active" onclick="showTab('chat')">💬 Chat</button>
-            <button class="tab-button" onclick="showTab('study')">📚 Study</button>
-            <button class="tab-button" onclick="showTab('announcements')">📢 Announcements</button>
-            <button class="tab-button" onclick="showTab('events')">🎉 Events</button>
-            <button class="tab-button" onclick="showTab('homework')">📝 Homework Help</button>
-            <button class="tab-button" onclick="showTab('info')">ℹ️ Class Info</button>
-        </div>
-        
-        <!-- Tab Content -->
-        <div id="chat" class="tab-content active">
-            <h2>Chat với nhau</h2>
-            <p>Đây là nơi để trò chuyện với các bạn trong lớp.</p>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message">
-                    <strong>Admin:</strong> Chào mừng các bạn đến với kênh chat của lớp 7A7!
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-                <button onclick="sendMessage()">Gửi</button>
-            </div>
-        </div>
-        
-        <div id="study" class="tab-content">
-            <h2>Study Together</h2>
-            <p>Nơi để học tập cùng nhau và chia sẻ tài liệu.</p>
-            <div class="study-resources">
-                <h3>Tài liệu học tập</h3>
-                <ul>
-                    <li>📖 Sách giáo khoa Toán 7</li>
-                    <li>📖 Sách giáo khoa Ngữ văn 7</li>
-                    <li>📖 Sách giáo khoa Khoa học 7</li>
-                    <li>📖 Sách giáo khoa Lịch sử 7</li>
-                </ul>
-                <h3>Lịch học</h3>
-                <p>Thứ 2: Toán, Ngữ văn</p>
-                <p>Thứ 3: Khoa học, Lịch sử</p>
-                <p>Thứ 4: Toán, Tiếng Anh</p>
-                <p>Thứ 5: Ngữ văn, Thể dục</p>
-                <p>Thứ 6: Khoa học, Mỹ thuật</p>
-            </div>
-        </div>
-        
-        <div id="announcements" class="tab-content">
-            <h2>Thông báo</h2>
-            <div class="announcements-list">
-                <div class="announcement">
-                    <h4>📅 Thông báo lịch thi</h4>
-                    <p>Kỳ thi giữa học kì 2 sẽ diễn ra vào tuần sau. Hãy ôn tập kỹ!</p>
-                    <small>Đăng ngày: 30/01/2026</small>
-                </div>
-                <div class="announcement">
-                    <h4>🏆 Cuộc thi toán học</h4>
-                    <p>Lớp 7A7 sẽ tham gia cuộc thi toán học cấp trường. Ai muốn tham gia đăng ký nhé!</p>
-                    <small>Đăng ngày: 25/01/2026</small>
-                </div>
-            </div>
-        </div>
-        
-        <div id="events" class="tab-content">
-            <h2>Sự kiện</h2>
-            <div class="events-list">
-                <div class="event">
-                    <h4>🎊 Ngày hội thể thao</h4>
-                    <p>Ngày: 15/02/2026</p>
-                    <p>Địa điểm: Sân trường</p>
-                    <p>Mọi người cùng tham gia nhé!</p>
-                </div>
-                <div class="event">
-                    <h4>🎨 Triển lãm mỹ thuật</h4>
-                    <p>Ngày: 20/02/2026</p>
-                    <p>Địa điểm: Phòng mỹ thuật</p>
-                    <p>Hãy mang tác phẩm của mình đến tham gia!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div id="homework" class="tab-content">
-            <h2>Hỏi đáp bài tập</h2>
-            <p>Hỏi về bài tập, câu hỏi về lớp, hoặc cần giúp đỡ gì thì post ở đây!</p>
-            <div class="homework-questions">
-                <div class="question">
-                    <strong>Minh:</strong> Ai có bài giải bài tập Toán trang 45 không?
-                </div>
-                <div class="question">
-                    <strong>Lan:</strong> Thầy cô giao bài tập gì hôm nay vậy các bạn?
-                </div>
-            </div>
-            <div class="ask-question">
-                <input type="text" id="questionInput" placeholder="Hỏi câu gì đó...">
-                <button onclick="askQuestion()">Hỏi</button>
-            </div>
-        </div>
-        
-        <div id="info" class="tab-content">
-            <h2>Thông tin lớp 7A7</h2>
-            <div class="class-info">
-                <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
-                <p>Cô Nguyễn Thị Mai</p>
-                
-                <h3>📊 Số lượng học sinh</h3>
-                <p>35 học sinh</p>
-                
-                <h3>📍 Phòng học</h3>
-                <p>Phòng 701</p>
-                
-                <h3>📞 Liên hệ</h3>
-                <p>Email: 7a7@school.edu.vn</p>
-                
-                <h3>🏆 Thành tích</h3>
-                <ul>
-                    <li>Giải nhất cuộc thi toán học cấp huyện 2025</li>
-                    <li>Giải nhì hội thi văn nghệ cấp trường 2025</li>
-                </ul>
-            </div>
-        </div>
-      </div>
-    `;
-    // Re-attach event listeners for the new elements
-    document.getElementById('chatInput').addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        sendMessage();
-      }
-    });
-    document.getElementById('questionInput').addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        askQuestion();
-      }
-    });
+    document.body.innerHTML = '<div class="working-message" style="display: block;"><h1>Still working on</h1><p>Please check back later.</p></div>';
   } else if (localStorage.getItem('7A7_submitted')) {
-    // Show class hub for submitted users
-    document.body.innerHTML = '';
-    document.body.style.backgroundColor = '#a9d593';
-    document.body.innerHTML = `
-      <div class="class-hub" id="classHub" style="display: block; margin: 20px;">
-        <h1>🏫 Lớp 7A7 Community Hub</h1>
-        
-        <!-- Navigation Tabs -->
-        <div class="hub-tabs">
-            <button class="tab-button active" onclick="showTab('chat')">💬 Chat</button>
-            <button class="tab-button" onclick="showTab('study')">📚 Study</button>
-            <button class="tab-button" onclick="showTab('announcements')">📢 Announcements</button>
-            <button class="tab-button" onclick="showTab('events')">🎉 Events</button>
-            <button class="tab-button" onclick="showTab('homework')">📝 Homework Help</button>
-            <button class="tab-button" onclick="showTab('info')">ℹ️ Class Info</button>
-        </div>
-        
-        <!-- Tab Content -->
-        <div id="chat" class="tab-content active">
-            <h2>Chat với nhau</h2>
-            <p>Đây là nơi để trò chuyện với các bạn trong lớp.</p>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message">
-                    <strong>Admin:</strong> Chào mừng bạn trở lại cộng đồng lớp 7A7!
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
-                <button onclick="sendMessage()">Gửi</button>
-            </div>
-        </div>
-        
-        <div id="study" class="tab-content">
-            <h2>Study Together</h2>
-            <p>Nơi để học tập cùng nhau và chia sẻ tài liệu.</p>
-            <div class="study-resources">
-                <h3>Tài liệu học tập</h3>
-                <ul>
-                    <li>📖 Sách giáo khoa Toán 7</li>
-                    <li>📖 Sách giáo khoa Ngữ văn 7</li>
-                    <li>📖 Sách giáo khoa Khoa học 7</li>
-                    <li>📖 Sách giáo khoa Lịch sử 7</li>
-                </ul>
-                <h3>Lịch học</h3>
-                <p>Thứ 2: Toán, Ngữ văn</p>
-                <p>Thứ 3: Khoa học, Lịch sử</p>
-                <p>Thứ 4: Toán, Tiếng Anh</p>
-                <p>Thứ 5: Ngữ văn, Thể dục</p>
-                <p>Thứ 6: Khoa học, Mỹ thuật</p>
-            </div>
-        </div>
-        
-        <div id="announcements" class="tab-content">
-            <h2>Thông báo</h2>
-            <div class="announcements-list">
-                <div class="announcement">
-                    <h4>📅 Thông báo lịch thi</h4>
-                    <p>Kỳ thi giữa học kì 2 sẽ diễn ra vào tuần sau. Hãy ôn tập kỹ!</p>
-                    <small>Đăng ngày: 30/01/2026</small>
-                </div>
-                <div class="announcement">
-                    <h4>🏆 Cuộc thi toán học</h4>
-                    <p>Lớp 7A7 sẽ tham gia cuộc thi toán học cấp trường. Ai muốn tham gia đăng ký nhé!</p>
-                    <small>Đăng ngày: 25/01/2026</small>
-                </div>
-            </div>
-        </div>
-        
-        <div id="events" class="tab-content">
-            <h2>Sự kiện</h2>
-            <div class="events-list">
-                <div class="event">
-                    <h4>🎊 Ngày hội thể thao</h4>
-                    <p>Ngày: 15/02/2026</p>
-                    <p>Địa điểm: Sân trường</p>
-                    <p>Mọi người cùng tham gia nhé!</p>
-                </div>
-                <div class="event">
-                    <h4>🎨 Triển lãm mỹ thuật</h4>
-                    <p>Ngày: 20/02/2026</p>
-                    <p>Địa điểm: Phòng mỹ thuật</p>
-                    <p>Hãy mang tác phẩm của mình đến tham gia!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div id="homework" class="tab-content">
-            <h2>Hỏi đáp bài tập</h2>
-            <p>Hỏi về bài tập, câu hỏi về lớp, hoặc cần giúp đỡ gì thì post ở đây!</p>
-            <div class="homework-questions">
-                <div class="question">
-                    <strong>Minh:</strong> Ai có bài giải bài tập Toán trang 45 không?
-                </div>
-                <div class="question">
-                    <strong>Lan:</strong> Thầy cô giao bài tập gì hôm nay vậy các bạn?
-                </div>
-            </div>
-            <div class="ask-question">
-                <input type="text" id="questionInput" placeholder="Hỏi câu gì đó...">
-                <button onclick="askQuestion()">Hỏi</button>
-            </div>
-        </div>
-        
-        <div id="info" class="tab-content">
-            <h2>Thông tin lớp 7A7</h2>
-            <div class="class-info">
-                <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
-                <p>Cô Nguyễn Thị Mai</p>
-                
-                <h3>📊 Số lượng học sinh</h3>
-                <p>35 học sinh</p>
-                
-                <h3>📍 Phòng học</h3>
-                <p>Phòng 701</p>
-                
-                <h3>📞 Liên hệ</h3>
-                <p>Email: 7a7@school.edu.vn</p>
-                
-                <h3>🏆 Thành tích</h3>
-                <ul>
-                    <li>Giải nhất cuộc thi toán học cấp huyện 2025</li>
-                    <li>Giải nhì hội thi văn nghệ cấp trường 2025</li>
-                </ul>
-            </div>
-        </div>
-      </div>
-    `;
-    // Re-attach event listeners
-    setTimeout(() => {
-      document.getElementById('chatInput').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-          sendMessage();
-        }
-      });
-      document.getElementById('questionInput').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-          askQuestion();
-        }
-      });
-    }, 100);
+    // Hide initial elements and show already submitted message
+    const hiddenEls = document.getElementsByClassName('HiddenEl');
+    for (let el of hiddenEls) {
+      el.style.display = 'none';
+    }
+    document.getElementById('alreadySubmitted').style.display = 'block';
   }
 });
       const button = document.getElementById("myBtn");
@@ -1199,50 +533,8 @@ window.addEventListener('load', function() {
 
       button.addEventListener("click", hideElements);
 
-      // Class Hub Functions
-      window.showTab = function(tabName) {
-        // Hide all tab contents
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.classList.remove('active'));
-        
-        // Remove active class from all buttons
-        const buttons = document.querySelectorAll('.tab-button');
-        buttons.forEach(button => button.classList.remove('active'));
-        
-        // Show selected tab
-        document.getElementById(tabName).classList.add('active');
-        
-        // Add active class to clicked button
-        event.target.classList.add('active');
-      };
-
-      window.sendMessage = function() {
-        const input = document.getElementById('chatInput');
-        const message = input.value.trim();
-        if (message) {
-          const messagesDiv = document.getElementById('chatMessages');
-          const newMessage = document.createElement('div');
-          newMessage.className = 'message';
-          newMessage.innerHTML = `<strong>You:</strong> ${message}`;
-          messagesDiv.appendChild(newMessage);
-          input.value = '';
-          messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-      };
-
-      window.askQuestion = function() {
-        const input = document.getElementById('questionInput');
-        const question = input.value.trim();
-        if (question) {
-          const questionsDiv = document.querySelector('.homework-questions');
-          const newQuestion = document.createElement('div');
-          newQuestion.className = 'question';
-          newQuestion.innerHTML = `<strong>You:</strong> ${question}`;
-          questionsDiv.appendChild(newQuestion);
-          input.value = '';
-          questionsDiv.scrollTop = questionsDiv.scrollHeight;
-        }
-      };
+      const resetButton = document.getElementById("resetBtn");
+      resetButton.addEventListener("click", resetProcess);
     </script>
 </body>
 </html>
