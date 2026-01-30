@@ -8,10 +8,11 @@
     <style>
       body {
           font-family: Arial, sans-serif;
-          background-color: #a9d593;
+          background: #a9d593;
           color: #333;
           text-align: center;
           padding: 50px;
+          min-height: 100vh;
       }
 
       .button {
@@ -134,7 +135,7 @@
       /* NEW CLASS HUB STYLES */
       .class-hub-new {
           font-family: 'Nunito', sans-serif;
-          background: linear-gradient(135deg, #5fb87d 0%, #6bc58d 100%);
+          background: #a9d593;
           min-height: 100vh;
           padding: 40px 20px;
           display: none;
@@ -826,8 +827,9 @@
             return false;
           }
         } else if (inputId === 'answer4') {
-          const lowerValue = value.toLowerCase();
-          if (!lowerValue.includes('tổ') || !lowerValue.includes('hàng')) {
+          // Just check if it's not empty, no strict validation
+          // This allows any format like "Tổ 3 hàng 3", "to 3 hang 3", etc.
+          if (value.length < 3) {
             input.classList.add('error');
             setTimeout(() => {
               input.classList.remove('error');
