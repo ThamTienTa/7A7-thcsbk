@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lớp 7A7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
       body {
           font-family: Arial, sans-serif;
@@ -130,13 +131,279 @@
           padding: 50px;
       }
 
-        .working-message {
-    display: none;
-    text-align: center;
-    padding: 50px;
-    font-size: 24px;
-    color: #FFFFFF;
-}
+      /* NEW CLASS HUB STYLES */
+      .class-hub-new {
+          font-family: 'Nunito', sans-serif;
+          background: linear-gradient(135deg, #5fb87d 0%, #6bc58d 100%);
+          min-height: 100vh;
+          padding: 40px 20px;
+          display: none;
+      }
+
+      .class-hub-new .container {
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .class-hub-new .header {
+          text-align: left;
+          margin-bottom: 60px;
+      }
+
+      .class-hub-new .header-badge {
+          display: inline-block;
+          background: linear-gradient(135deg, #FFE066 0%, #FFD147 100%);
+          padding: 20px 60px;
+          border-radius: 50px;
+          transform: rotate(-2deg);
+          box-shadow: 
+              0 8px 16px rgba(0, 0, 0, 0.15),
+              inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+          border: 4px solid #333;
+      }
+
+      .class-hub-new .header-badge h1 {
+          font-family: 'Chewy', cursive;
+          font-size: 72px;
+          color: #FF6B6B;
+          text-shadow: 
+              3px 3px 0px #333,
+              -1px -1px 0px #fff;
+          letter-spacing: 4px;
+          margin: 0;
+      }
+
+      .class-hub-new .subtitle-badge {
+          display: inline-block;
+          background: #FFF8E1;
+          padding: 15px 40px;
+          border-radius: 40px;
+          border: 3px solid #333;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .class-hub-new .subtitle-badge h2 {
+          font-family: 'Chewy', cursive;
+          font-size: 42px;
+          color: #FF6B6B;
+          text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+          margin: 0;
+      }
+
+      .class-hub-new .class-name {
+          font-size: 56px;
+          font-weight: 800;
+          color: #2d3436;
+          margin-top: 30px;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .class-hub-new .grid-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+      }
+
+      .class-hub-new .grid-item {
+          background: white;
+          border: 4px solid #333;
+          border-radius: 20px;
+          padding: 30px 25px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          box-shadow: 
+              0 6px 0 #333,
+              0 8px 12px rgba(0, 0, 0, 0.15);
+          position: relative;
+      }
+
+      .class-hub-new .grid-item:hover {
+          transform: translateY(-8px);
+          box-shadow: 
+              0 10px 0 #333,
+              0 12px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .class-hub-new .grid-item:active {
+          transform: translateY(-2px);
+          box-shadow: 
+              0 4px 0 #333,
+              0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .class-hub-new .icon-box {
+          width: 70px;
+          height: 70px;
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 36px;
+          border: 3px solid #333;
+          flex-shrink: 0;
+          box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .class-hub-new .grid-item:nth-child(1) .icon-box { background: #87CEEB; }
+      .class-hub-new .grid-item:nth-child(2) .icon-box { background: #DDA0DD; }
+      .class-hub-new .grid-item:nth-child(3) .icon-box { background: #FFB6C1; }
+      .class-hub-new .grid-item:nth-child(4) .icon-box { background: #FFB347; }
+      .class-hub-new .grid-item:nth-child(5) .icon-box { background: #B19CD9; }
+      .class-hub-new .grid-item:nth-child(6) .icon-box { background: #FFB6D9; }
+      .class-hub-new .grid-item:nth-child(7) .icon-box { background: #FF9966; }
+      .class-hub-new .grid-item:nth-child(8) .icon-box { background: #87CEEB; }
+
+      .class-hub-new .grid-text {
+          flex: 1;
+          text-align: left;
+      }
+
+      .class-hub-new .grid-text h3 {
+          font-size: 22px;
+          font-weight: 800;
+          color: #2d3436;
+          line-height: 1.3;
+          margin: 0;
+      }
+
+      /* Modal styles */
+      .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          z-index: 1000;
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 0.3s;
+      }
+
+      .modal.active {
+          display: flex;
+      }
+
+      .modal-content {
+          background: white;
+          border: 4px solid #333;
+          border-radius: 25px;
+          padding: 40px;
+          max-width: 800px;
+          width: 90%;
+          max-height: 80vh;
+          overflow-y: auto;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          padding-bottom: 20px;
+          border-bottom: 3px solid #333;
+      }
+
+      .modal-header h2 {
+          font-family: 'Chewy', cursive;
+          font-size: 36px;
+          color: #FF6B6B;
+          margin: 0;
+      }
+
+      .close-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #FF6B6B;
+          border: 3px solid #333;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          transition: all 0.2s;
+      }
+
+      .close-btn:hover {
+          transform: rotate(90deg);
+          background: #FF5252;
+      }
+
+      .modal-body {
+          font-size: 18px;
+          line-height: 1.8;
+          color: #2d3436;
+          text-align: left;
+      }
+
+      .modal-body h3 {
+          font-size: 24px;
+          margin: 20px 0 10px 0;
+          color: #FF6B6B;
+      }
+
+      .modal-body h4 {
+          font-size: 20px;
+          margin: 15px 0 8px 0;
+          color: #498e4c;
+      }
+
+      .modal-body ul {
+          margin-left: 25px;
+          margin-bottom: 15px;
+      }
+
+      .modal-body li {
+          margin-bottom: 8px;
+      }
+
+      .modal-body .announcement {
+          background-color: #f9f9f9;
+          padding: 15px;
+          margin-bottom: 15px;
+          border-radius: 8px;
+          border-left: 4px solid #498e4c;
+      }
+
+      @keyframes slideUp {
+          from { 
+              opacity: 0;
+              transform: translateY(50px) scale(0.9);
+          }
+          to { 
+              opacity: 1;
+              transform: translateY(0) scale(1);
+          }
+      }
+
+      @media (max-width: 768px) {
+          .class-hub-new .header-badge h1 {
+              font-size: 48px;
+          }
+          
+          .class-hub-new .subtitle-badge h2 {
+              font-size: 32px;
+          }
+          
+          .class-hub-new .class-name {
+              font-size: 40px;
+          }
+
+          .class-hub-new .grid-container {
+              grid-template-columns: 1fr;
+          }
+      }
     </style>
 </head>
 <body>
@@ -160,7 +427,7 @@
     <div class="question-container" id="question1">
         <h2>Câu hỏi 1</h2>
         <p>Bạn tên là gì?</p>
-        <input type="text" id="answer1" placeholder="Đầy đủ họ tên">
+        <input type="text" id="answer1" placeholder="Đầy đủ họ tên">
         <button class="button" onclick="nextQuestion(1)">Tiếp tục</button>
     </div>
 
@@ -168,7 +435,7 @@
     <div class="question-container" id="question2">
         <h2>Câu hỏi 2</h2>
         <p>Ngày tháng năm sinh?</p>
-        <input type="text" id="answer2" placeholder="Đầy đủ ngày tháng...">
+        <input type="text" id="answer2" placeholder="Đầy đủ ngày tháng...">
         <button class="button" onclick="nextQuestion(2)">Tiếp tục</button>
     </div>
 
@@ -192,7 +459,7 @@
     <div class="question-container" id="question4">
         <h2>Câu hỏi 4</h2>
         <p>Bạn ngồi ở bàn nào?</p>
-        <input type="text" id="answer4" placeholder="Tổ, hàng...(vd: Tổ 4, hàng 36)">
+        <input type="text" id="answer4" placeholder="Tổ, hàng...(vd: Tổ 4, hàng 36)">
         <button class="button" onclick="submitAnswers()">Hoàn thành</button>
     </div>
 
@@ -202,22 +469,276 @@
         <p id="finalMessage">Đang gửi câu trả lời...</p>
     </div>
 
-    <!-- Still Working On Message -->
-<div class="working-message" id="workingMessage">
-    <h1>Still working on</h1>
-    <p>Please check back later.</p>
-</div>
+    <!-- NEW CLASS HUB -->
+    <div class="class-hub-new" id="classHubNew">
+        <div class="container">
+            <div class="header">
+                <div class="header-badge">
+                    <h1>LỚP HỌC</h1>
+                </div>
+                <div class="subtitle-badge">
+                    <h2>TRUNG TÂM</h2>
+                </div>
+                <div class="class-name">Lớp 7A7</div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item" onclick="openModal('chuong-trinh')">
+                    <div class="icon-box">📋</div>
+                    <div class="grid-text">
+                        <h3>Chương trình<br>Hôm nay</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('tin-tuc')">
+                    <div class="icon-box">📝</div>
+                    <div class="grid-text">
+                        <h3>Tin tức lớp<br>học</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('chinh-sach')">
+                    <div class="icon-box">✓</div>
+                    <div class="grid-text">
+                        <h3>Chính sách<br>lớp học</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('hoc-sinh')">
+                    <div class="icon-box">💡</div>
+                    <div class="grid-text">
+                        <h3>học sinh<br>của tuần</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('lich-hoc')">
+                    <div class="icon-box">📅</div>
+                    <div class="grid-text">
+                        <h3>Lịch lớp<br>học</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('tai-nguyen')">
+                    <div class="icon-box">🔍</div>
+                    <div class="grid-text">
+                        <h3>Tài nguyên<br>lớp học</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('giao-vien')">
+                    <div class="icon-box">👤</div>
+                    <div class="grid-text">
+                        <h3>Gặp giáo<br>viên</h3>
+                    </div>
+                </div>
+
+                <div class="grid-item" onclick="openModal('phu-huynh')">
+                    <div class="icon-box">⬇</div>
+                    <div class="grid-text">
+                        <h3>Tài liệu cho<br>phụ huynh</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-chuong-trinh" class="modal" onclick="closeModal(event, 'chuong-trinh')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>📋 Chương trình Hôm nay</h2>
+                <button class="close-btn" onclick="closeModal(event, 'chuong-trinh')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Lịch học hôm nay - Thứ 6, 30/01/2026</h3>
+                <ul>
+                    <li><strong>8:00 - 8:45:</strong> Toán - Bài tập phân số</li>
+                    <li><strong>8:50 - 9:35:</strong> Ngữ văn - Văn miêu tả</li>
+                    <li><strong>9:50 - 10:35:</strong> Khoa học - Vật lý: Ánh sáng</li>
+                    <li><strong>10:40 - 11:25:</strong> Mỹ thuật - Vẽ phong cảnh</li>
+                </ul>
+                <p><strong>Bài tập về nhà:</strong> Làm bài tập Toán trang 45-46, soạn bài Ngữ văn tiết sau.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tin-tuc" class="modal" onclick="closeModal(event, 'tin-tuc')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>📝 Tin tức lớp học</h2>
+                <button class="close-btn" onclick="closeModal(event, 'tin-tuc')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Thông báo mới nhất</h3>
+                <div class="announcement">
+                    <h4>📅 Thông báo lịch thi</h4>
+                    <p>Kỳ thi giữa học kì 2 sẽ diễn ra vào tuần sau. Hãy ôn tập kỹ!</p>
+                    <small>Đăng ngày: 30/01/2026</small>
+                </div>
+                <div class="announcement">
+                    <h4>🏆 Cuộc thi toán học</h4>
+                    <p>Lớp 7A7 sẽ tham gia cuộc thi toán học cấp trường. Ai muốn tham gia đăng ký nhé!</p>
+                    <small>Đăng ngày: 25/01/2026</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-chinh-sach" class="modal" onclick="closeModal(event, 'chinh-sach')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>✓ Chính sách lớp học</h2>
+                <button class="close-btn" onclick="closeModal(event, 'chinh-sach')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Quy định lớp học</h3>
+                <ul>
+                    <li>Đến lớp đúng giờ (trước 7:45)</li>
+                    <li>Mặc đồng phục đầy đủ</li>
+                    <li>Hoàn thành bài tập đầy đủ</li>
+                    <li>Tôn trọng thầy cô và bạn bè</li>
+                    <li>Giữ gìn vệ sinh chung</li>
+                    <li>Không sử dụng điện thoại trong giờ học</li>
+                </ul>
+                <h3>Quy định vắng mặt</h3>
+                <p>Nếu em vắng mặt, phụ huynh cần gửi đơn xin phép cho giáo viên chủ nhiệm trước 8:00 sáng.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-hoc-sinh" class="modal" onclick="closeModal(event, 'hoc-sinh')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>💡 Học sinh của tuần</h2>
+                <button class="close-btn" onclick="closeModal(event, 'hoc-sinh')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>🌟 Học sinh xuất sắc tuần này</h3>
+                <p><strong>Nguyễn Văn A</strong></p>
+                <p>Em đã có thành tích xuất sắc trong tuần qua với:</p>
+                <ul>
+                    <li>Điểm 10 môn Toán</li>
+                    <li>Tích cực tham gia hoạt động lớp</li>
+                    <li>Giúp đỡ bạn bè học bài</li>
+                    <li>Luôn hoàn thành bài tập đúng hạn</li>
+                </ul>
+                <p>Chúc mừng em và tiếp tục cố gắng nhé! 🎉</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-lich-hoc" class="modal" onclick="closeModal(event, 'lich-hoc')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>📅 Lịch lớp học</h2>
+                <button class="close-btn" onclick="closeModal(event, 'lich-hoc')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Thời khóa biểu tuần</h3>
+                <p><strong>Thứ 2:</strong> Toán, Ngữ văn, Lịch sử, Thể dục</p>
+                <p><strong>Thứ 3:</strong> Khoa học, Ngữ văn, Toán, Âm nhạc</p>
+                <p><strong>Thứ 4:</strong> Toán, Tiếng Anh, Địa lý, Tin học</p>
+                <p><strong>Thứ 5:</strong> Ngữ văn, Khoa học, Toán, Thể dục</p>
+                <p><strong>Thứ 6:</strong> Toán, Ngữ văn, Khoa học, Mỹ thuật</p>
+                <h3>Sự kiện sắp tới</h3>
+                <p>🎊 <strong>Ngày hội thể thao:</strong> 15/02/2026</p>
+                <p>🎨 <strong>Triển lãm mỹ thuật:</strong> 20/02/2026</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tai-nguyen" class="modal" onclick="closeModal(event, 'tai-nguyen')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>🔍 Tài nguyên lớp học</h2>
+                <button class="close-btn" onclick="closeModal(event, 'tai-nguyen')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Tài liệu học tập</h3>
+                <ul>
+                    <li>📖 Sách giáo khoa Toán 7</li>
+                    <li>📖 Sách giáo khoa Ngữ văn 7</li>
+                    <li>📖 Sách giáo khoa Khoa học 7</li>
+                    <li>📖 Sách giáo khoa Lịch sử 7</li>
+                    <li>📖 Sách giáo khoa Địa lý 7</li>
+                    <li>📖 Sách bài tập các môn</li>
+                </ul>
+                <h3>Trang web hữu ích</h3>
+                <ul>
+                    <li>Học toán online</li>
+                    <li>Từ điển tiếng Việt</li>
+                    <li>Thư viện điện tử</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-giao-vien" class="modal" onclick="closeModal(event, 'giao-vien')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>👤 Gặp giáo viên</h2>
+                <button class="close-btn" onclick="closeModal(event, 'giao-vien')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>👨‍🏫 Giáo viên chủ nhiệm</h3>
+                <p><strong>Cô Nguyễn Thị Mai</strong></p>
+                <p>📧 Email: nguyenthimai@school.edu.vn</p>
+                <p>📞 Điện thoại: 0123-456-789</p>
+                <p>🕐 Giờ làm việc: 7:00 - 17:00 (Thứ 2 - Thứ 6)</p>
+                
+                <h3>Giáo viên bộ môn</h3>
+                <p><strong>Thầy Trần Văn B</strong> - Toán</p>
+                <p><strong>Cô Lê Thị C</strong> - Ngữ văn</p>
+                <p><strong>Thầy Phạm Văn D</strong> - Khoa học</p>
+                
+                <h3>Lịch gặp phụ huynh</h3>
+                <p>Thứ 7 đầu tiên của mỗi tháng, từ 8:00 - 11:00</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-phu-huynh" class="modal" onclick="closeModal(event, 'phu-huynh')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>⬇ Tài liệu cho phụ huynh</h2>
+                <button class="close-btn" onclick="closeModal(event, 'phu-huynh')">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>Tài liệu hướng dẫn</h3>
+                <ul>
+                    <li>📄 Sổ tay phụ huynh năm học 2025-2026</li>
+                    <li>📄 Hướng dẫn theo dõi học tập của con</li>
+                    <li>📄 Lịch họp phụ huynh</li>
+                    <li>📄 Quy định về đồng phục và dụng cụ học tập</li>
+                </ul>
+                <h3>Biểu mẫu</h3>
+                <ul>
+                    <li>📋 Đơn xin phép nghỉ học</li>
+                    <li>📋 Phiếu đăng ký hoạt động ngoại khóa</li>
+                    <li>📋 Phiếu phản hồi về hoạt động lớp</li>
+                </ul>
+                <p><em>Vui lòng liên hệ giáo viên chủ nhiệm để nhận các tài liệu này.</em></p>
+            </div>
+        </div>
+    </div>
+
     <script>
       // THAY ĐỔI EMAIL CỦA BẠN Ở ĐÂY
-      const YOUR_EMAIL = 'tamtt.jps@gmail.com';  // ← ĐỔI EMAIL NÀY
+      const YOUR_EMAIL = 'tamtt.jps@gmail.com';
       const FORM_URL = `https://formsubmit.co/ajax/${YOUR_EMAIL}`;
       
       const answers = {};
 
-      // Check if already submitted on page load
+      // Check if already submitted or working status on page load
       window.addEventListener('load', function() {
-        if (localStorage.getItem('7A7_submitted')) {
-          // Hide initial elements and show already submitted message
+        const status = localStorage.getItem('7A7_status');
+        if (status === 'working') {
+          // Show new class hub
+          hideAllElements();
+          document.getElementById('classHubNew').style.display = 'block';
+          document.body.style.padding = '0';
+        } else if (localStorage.getItem('7A7_submitted')) {
+          // Show already submitted message
           const hiddenEls = document.getElementsByClassName('HiddenEl');
           for (let el of hiddenEls) {
             el.style.display = 'none';
@@ -225,6 +746,16 @@
           document.getElementById('alreadySubmitted').style.display = 'block';
         }
       });
+
+      function hideAllElements() {
+        const hiddenEls = document.getElementsByClassName('HiddenEl');
+        for (let el of hiddenEls) {
+          el.style.display = 'none';
+        }
+        document.querySelectorAll('.question-container, .already-submitted, .blank-page').forEach(el => {
+          el.style.display = 'none';
+        });
+      }
 
       // Enter key listener
       document.addEventListener('keypress', function(event) {
@@ -264,9 +795,7 @@
           return false;
         }
 
-        // Specific validations
         if (inputId === 'answer1') {
-          // Name: At least 2 words, each word at least 2-3 letters
           const words = value.split(/\s+/);
           if (words.length < 2 || words.some(word => word.length < 2)) {
             input.classList.add('error');
@@ -276,7 +805,6 @@
             return false;
           }
         } else if (inputId === 'answer2') {
-          // Birthday: Must be in DD/MM/YYYY format (1-2 digits for day/month), valid date, and year 2012, 2013, or 2014
           const dateRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
           const match = value.match(dateRegex);
           if (!match) {
@@ -298,9 +826,8 @@
             return false;
           }
         } else if (inputId === 'answer4') {
-          // Desk: Must contain "tổ" and "hàng" (case-insensitive)
           const lowerValue = value.toLowerCase();
-          if (!lowerValue.includes('tổ') || !lowerValue.includes('hàng')) {
+          if (!lowerValue.includes('tổ') || !lowerValue.includes('hàng')) {
             input.classList.add('error');
             setTimeout(() => {
               input.classList.remove('error');
@@ -313,12 +840,7 @@
       }
 
       async function sendToEmail(data) {
-        const FORM_URL = `https://formsubmit.co/ajax/${YOUR_EMAIL}`;  // Your email (keep this)
-        const CUSTOM_WEBSITE_URL = 'https://your-other-website.com/receive-answers.php';  // ← REPLACE WITH YOUR ACTUAL URL (e.g., https://mysite.com/receive-answers.php)
-        const API_KEY = 'k8j2m9p4q7r5t1v3w6x0y8z';  // ← REPLACE WITH YOUR GENERATED API KEY (32 random characters)
-        
         try {
-          // Send to email (unchanged)
           const emailResponse = await fetch(FORM_URL, {
             method: 'POST',
             headers: {
@@ -334,28 +856,10 @@
             })
           });
           
-          // Send to your custom website
-          const customResponse = await fetch(CUSTOM_WEBSITE_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${API_KEY}`  // Sends the API key for security
-            },
-            body: JSON.stringify({
-              name: data.name,
-              birthday: data.birthday,
-              studentCount: data.studentCount,
-              deskNumber: data.deskNumber,
-              timestamp: new Date().toLocaleString('vi-VN')
-            })
-          });
-          
           console.log('Email sent:', emailResponse.ok);
-          console.log('Custom website sent:', customResponse.ok);
-          return emailResponse.ok && customResponse.ok;  // Success if both work
+          return emailResponse.ok;
         } catch (error) {
           console.error('Error sending:', error);
-          // Save locally as backup
           localStorage.setItem('7A7_pending_' + Date.now(), JSON.stringify(data));
           return false;
         }
@@ -400,7 +904,7 @@
           nextInputId = 'answer4';
         }
 
-        currentBox.classList.remove('slide-up', 'fade-in');  // Note: 'slide-up' is removed here in case it was added elsewhere
+        currentBox.classList.remove('slide-up', 'fade-in');
         void currentBox.offsetWidth;
         currentBox.classList.add('fade-out');
         
@@ -442,72 +946,25 @@
           finalBox.style.display = 'block';
           finalBox.classList.add('fade-in');
           
-          // Send to email and custom website
           const success = await sendToEmail(answers);
           
           const finalMessage = document.getElementById('finalMessage');
           if (success) {
-            finalMessage.innerHTML = 'Câu trả lời đã được gửi!<br>Hãy chờ 1-2 ngày để xác minh thành viên!';
+            finalMessage.innerHTML = 'Câu trả lời đã được gửi!<br>Chào mừng bạn đến với cộng đồng lớp 7A7!';
+            localStorage.setItem('7A7_status', 'working');
+            setTimeout(() => {
+              hideAllElements();
+              document.getElementById('classHubNew').style.display = 'block';
+              document.body.style.padding = '0';
+            }, 2000);
           } else {
             finalMessage.innerHTML = 'Câu trả lời đã được lưu!<br><small>Sẽ gửi khi có internet.</small>';
           }
 
-          // Mark as submitted in localStorage
           localStorage.setItem('7A7_submitted', 'true');
         }, 500);
       }
-
-      function resetProcess() {
-        // Clear answers
-        for (let key in answers) {
-          delete answers[key];
-        }
-        
-        // Clear input values
-        const inputs = ['answer1', 'answer2', 'answer3', 'answer4'];
-        inputs.forEach(id => {
-          const input = document.getElementById(id);
-          if (input) input.value = '';
-        });
-        
-        // Hide all question containers and final
-        const containers = ['question1', 'question2', 'identity', 'question3', 'question4', 'final', 'alreadySubmitted'];
-        containers.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.classList.add('hidden');
-            el.style.display = 'none';
-          }
-        });
-        
-        // Clear localStorage
-        localStorage.removeItem('7A7_submitted');
-        
-        // Show initial elements
-        const hiddenEls = document.getElementsByClassName('HiddenEl');
-        for (let el of hiddenEls) {
-          el.style.display = 'block';
-          el.classList.remove('fade-out');
-        }
-      }
           
-// Check if already submitted or in working status on page load
-window.addEventListener('load', function() {
-  const status = localStorage.getItem('7A7_status');
-  if (status === 'working') {
-    // Show "still working on" message and hide everything else
-    document.body.innerHTML = '';
-    document.body.style.backgroundColor = '#a9d593';
-    document.body.innerHTML = '<div class="working-message" style="display: block;"><h1>Still working on</h1><p>Please check back later.</p></div>';
-  } else if (localStorage.getItem('7A7_submitted')) {
-    // Hide initial elements and show already submitted message
-    const hiddenEls = document.getElementsByClassName('HiddenEl');
-    for (let el of hiddenEls) {
-      el.style.display = 'none';
-    }
-    document.getElementById('alreadySubmitted').style.display = 'block';
-  }
-});
       const button = document.getElementById("myBtn");
       const questionBox = document.getElementById("question1");
       
@@ -522,7 +979,7 @@ window.addEventListener('load', function() {
             elements[i].style.display = "none";
           }
           
-          questionBox.classList.remove('hidden');  // Ensure no 'hidden' class
+          questionBox.classList.remove('hidden');
           questionBox.style.display = 'block';
           questionBox.style.opacity = '0';
           void questionBox.offsetWidth;
@@ -533,8 +990,28 @@ window.addEventListener('load', function() {
 
       button.addEventListener("click", hideElements);
 
-      const resetButton = document.getElementById("resetBtn");
-      resetButton.addEventListener("click", resetProcess);
+      // Modal Functions
+      function openModal(modalId) {
+        const modal = document.getElementById('modal-' + modalId);
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(event, modalId) {
+        const modal = document.getElementById('modal-' + modalId);
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          const activeModal = document.querySelector('.modal.active');
+          if (activeModal) {
+            activeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        }
+      });
     </script>
 </body>
 </html>
