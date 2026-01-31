@@ -489,6 +489,10 @@
     <h1>Still working on</h1>
     <p>Please check back later.</p>
 </div>
+<think>
+First, the user said: "no i just need the script part"
+
+</think>```javascript
 <script>
   // THAY ĐỔI EMAIL CỦA BẠN Ở ĐÂY
   const YOUR_EMAIL = 'tamtt.jps@gmail.com';  // ← ĐỔI EMAIL NÀY (e.g., 'yourrealemail@example.com')
@@ -579,30 +583,8 @@
         }, 300);
         return false;
       }
-    } else if (inputId === 'answer4') {
-      // Desk: Split by comma, normalize to lowercase, match "tổ X hàng Y" format, validate ranges
-      const parts = value.toLowerCase().split(',').map(p => p.trim());  // Split and normalize
-      const deskRegex = /^tổ (\d+) hàng (\d+)$/;  // Regex for "tổ X hàng Y" (multi-digit allowed)
-      for (const part of parts) {
-        const match = part.match(deskRegex);
-        if (!match) {
-          input.classList.add('error');
-          setTimeout(() => {
-            input.classList.remove('error');
-          }, 300);
-          return false;
-        }
-        const to = parseInt(match[1], 10);
-        const hang = parseInt(match[2], 10);
-        if (to < 1 || to > 4 || hang < 1 || hang > 6) {  // Adjust ranges if needed
-          input.classList.add('error');
-          setTimeout(() => {
-            input.classList.remove('error');
-          }, 300);
-          return false;
-        }
-      }
     }
+    // Removed special validation for answer4 (question 4)
 
     return true;
   }
